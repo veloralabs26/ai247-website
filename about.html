@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — AI 247</title>
+  <meta name="description" content="Meet the team behind AI 247. Founded by Hamad Alismail — $320K+ in revenue generated for clients across 12 industries.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About — AI 247">
+  <meta property="og:description" content="Meet the team behind AI 247. Founded by Hamad Alismail — $320K+ in revenue generated for clients across 12 industries.">
+  <meta property="og:url" content="https://ai247.sa/about.html">
+  <meta property="og:site_name" content="AI 247">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — AI 247">
+  <meta name="twitter:description" content="Meet the team behind AI 247. Founded by Hamad Alismail — $320K+ generated for clients.">
+  <style>
+    @font-face {
+      font-family: 'Dmsans';
+      src: url('fonts/DMSans-Regular.woff2') format('woff2'), url('fonts/DMSans-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Dmsans';
+      src: url('fonts/DMSans-Medium.woff2') format('woff2'), url('fonts/DMSans-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ── About page styles ── */
+
+    .about-hero {
+      padding-top: 8em;
+      padding-bottom: 5em;
+    }
+
+    .about-hero {
+      justify-content: center;
+      min-height: calc(60svh - 5em);
+      padding-bottom: 4em;
+      padding-top: 6em;
+    }
+
+    .dark-mode .about-hero {
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, #1a1a2e 0%, #111113 70%);
+    }
+
+    .about-hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5em;
+      max-width: 52em;
+      margin: 0 auto;
+    }
+
+    .about-hero-inner .h1 {
+      line-height: 105%;
+    }
+
+    .about-hero-sub {
+      font-size: 1.05em;
+      line-height: 155%;
+      color: rgba(0,0,0,.55);
+      max-width: 30em;
+    }
+
+    .dark-mode .about-hero-sub {
+      color: hsla(0,0%,100%,.5);
+    }
+
+    /* Origin story */
+    .origin-section {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .origin-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4em;
+      margin-top: 3.5em;
+      align-items: start;
+      width: 100%;
+    }
+
+    .origin-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+    }
+
+    .origin-text p {
+      font-size: 1em;
+      line-height: 155%;
+      color: rgba(0,0,0,.55);
+    }
+
+    .dark-mode .origin-text p {
+      color: hsla(0,0%,100%,.5);
+    }
+
+    .origin-image {
+      width: 100%;
+    }
+
+    .origin-image {
+      position: sticky;
+      top: 6em;
+    }
+
+    .origin-image img {
+      width: 100%;
+      border-radius: 1em;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .dark-mode .origin-image img {
+      filter: brightness(.9);
+    }
+
+    /* Milestones */
+    .milestones {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 1em;
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+
+    .dark-mode .milestones {
+      border-top-color: hsla(0,0%,100%,.08);
+    }
+
+    .milestone {
+      display: flex;
+      gap: 2em;
+      padding: 1.25em 0;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      align-items: baseline;
+    }
+
+    .dark-mode .milestone {
+      border-bottom-color: hsla(0,0%,100%,.08);
+    }
+
+    .milestone-year {
+      font-size: .85em;
+      font-weight: 500;
+      color: rgba(0,0,0,.4);
+      flex-shrink: 0;
+      width: 3.5em;
+    }
+
+    .dark-mode .milestone-year {
+      color: hsla(0,0%,100%,.35);
+    }
+
+    .milestone-desc {
+      font-size: 1em;
+      line-height: 155%;
+      color: var(--black);
+    }
+
+    .dark-mode .milestone-desc {
+      color: #f0f0f2;
+    }
+
+    /* Team section */
+    .about-team-section {
+      padding-top: 5em;
+      padding-bottom: 5em;
+    }
+
+    .about-team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5em;
+      margin-top: 3.5em;
+      width: 100%;
+    }
+
+    .about-team-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5em;
+    }
+
+    .about-team-photo {
+      width: 100%;
+    }
+
+    .about-team-photo img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 1em;
+      background: linear-gradient(180deg, #e8e8e8, #d4d4d4);
+    }
+
+    .dark-mode .about-team-photo img {
+      background: linear-gradient(180deg, #e8e8e8, #d4d4d4);
+    }
+
+    .about-team-info {
+      display: flex;
+      flex-direction: column;
+      gap: .5em;
+    }
+
+    .about-team-name {
+      font-size: 1.5em;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      color: var(--black);
+    }
+
+    .dark-mode .about-team-name {
+      color: #f0f0f2;
+    }
+
+    .about-team-role {
+      font-size: 1em;
+      color: rgba(0,0,0,.4);
+      margin-bottom: .25em;
+    }
+
+    .dark-mode .about-team-role {
+      color: hsla(0,0%,100%,.35);
+    }
+
+    .about-team-bio {
+      font-size: .95em;
+      line-height: 155%;
+      color: rgba(0,0,0,.55);
+    }
+
+    .dark-mode .about-team-bio {
+      color: hsla(0,0%,100%,.5);
+    }
+
+    /* Values section */
+    .values-section {
+      background-color: #111113;
+      padding: 5em 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5em;
+      margin-top: 3em;
+      width: 100%;
+    }
+
+    .value-card {
+      background: hsla(0,0%,100%,.06);
+      border-radius: 1em;
+      padding: 1.5em;
+      display: flex;
+      flex-direction: column;
+      gap: .75em;
+    }
+
+    .value-num {
+      font-size: .75em;
+      font-weight: 500;
+      color: hsla(0,0%,100%,.35);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .value-title {
+      font-size: 1.25em;
+      font-weight: 500;
+      color: #f0f0f2;
+      letter-spacing: -.01em;
+    }
+
+    .value-desc {
+      font-size: .95em;
+      line-height: 155%;
+      color: hsla(0,0%,100%,.5);
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 991px) {
+      .about-hero {
+        padding-top: 96px;
+        padding-bottom: 40px;
+      }
+
+      .about-hero-inner .h1 {
+        font-size: 36px;
+        letter-spacing: -1px;
+      }
+
+      .about-hero-sub {
+        font-size: 18px;
+      }
+
+      .origin-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .origin-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 28px;
+      }
+
+      .origin-image {
+        order: -1;
+      }
+
+      .origin-image img {
+        aspect-ratio: 16/9;
+        object-position: center 20%;
+      }
+
+      .about-team-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+
+      .about-team-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 28px;
+      }
+
+      .about-team-card {
+        flex-direction: row;
+        gap: 1.25em;
+      }
+
+      .about-team-photo {
+        width: 8em;
+        flex-shrink: 0;
+      }
+
+      .about-team-photo img {
+        aspect-ratio: 1;
+      }
+
+      .values-section {
+        padding: 48px 0;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .value-card {
+        padding: 24px;
+      }
+
+      .milestone {
+        gap: 1em;
+      }
+    }
+  </style>
+  <link rel="canonical" href="https://ai247.sa/about.html">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preload" as="font" href="fonts/DMSans-Regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/DMSans-Medium.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="leftclick-body">
+
+  <!-- HEADER -->
+  <div class="leftclick-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo">
+          <img fetchpriority="low" src="scraped/images/ai247-logo-dark.png" alt="AI 247 Automation" class="full-width">
+        </a>
+        <nav class="nav-wrap">
+          <a class='nav-link' href='services.html'>Services</a>
+          
+          <a class='nav-link' href='about.html'>About</a>
+          <a class='nav-link' href='resources.html'>Resources</a>
+          
+        </nav>
+        <div class="lang-switch"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="ar">عربي</button></div>
+        <div class="header-btn">
+          <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+              <div class="btn-text-hover">Let's talk</div>
+            </div>
+            <div class="btn-icon-box">
+              <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon-hover">
+              <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon">
+            </div>
+          </a>
+        </div>
+        <button class="menu-btn" aria-label="Menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <nav class="mobile-menu-nav">
+      <a class='mobile-menu-link' href='services.html'>Services</a>
+      
+      <a class='mobile-menu-link' href='about.html'>About</a>
+      <a class='mobile-menu-link' href='resources.html'>Resources</a>
+      
+      <a class="mobile-menu-link" href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener">Let's talk</a>
+    </nav>
+  </div>
+
+  <main class="leftclick-section">
+
+    <!-- HERO -->
+    <section class="leftclick-section about-hero">
+      <div class="common-wrap">
+        <div class="about-hero-inner">
+          <h1 class="h1">The people behind your AI systems.</h1>
+          <p class="about-hero-sub">Hamad's hands-on track record means every system AI 247 sells has been demonstrated, explained, and stress-tested with real businesses. Builder first, consultant second.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="leftclick-section marquee-section"><div class="common-wrap marquee-label-wrap"><div class="marquee-label">We worked with</div></div><div class="marquee-wrap"><div class="marquee-track"><span class="marquee-item">Miller's Auto Repair</span><span class="marquee-item">Sunrise Family Dental</span><span class="marquee-item">Greenfield Landscaping</span><span class="marquee-item">Bluebird Bakery</span><span class="marquee-item">Coastal Plumbing Co.</span><span class="marquee-item">Main Street Diner</span><span class="marquee-item">Riverside Fitness</span><span class="marquee-item">Hometown HVAC</span><span class="marquee-item">Miller's Auto Repair</span><span class="marquee-item">Sunrise Family Dental</span><span class="marquee-item">Greenfield Landscaping</span><span class="marquee-item">Bluebird Bakery</span><span class="marquee-item">Coastal Plumbing Co.</span><span class="marquee-item">Main Street Diner</span><span class="marquee-item">Riverside Fitness</span><span class="marquee-item">Hometown HVAC</span><span class="marquee-item">Miller's Auto Repair</span><span class="marquee-item">Sunrise Family Dental</span><span class="marquee-item">Greenfield Landscaping</span><span class="marquee-item">Bluebird Bakery</span><span class="marquee-item">Coastal Plumbing Co.</span><span class="marquee-item">Main Street Diner</span><span class="marquee-item">Riverside Fitness</span><span class="marquee-item">Hometown HVAC</span><span class="marquee-item">Miller's Auto Repair</span><span class="marquee-item">Sunrise Family Dental</span><span class="marquee-item">Greenfield Landscaping</span><span class="marquee-item">Bluebird Bakery</span><span class="marquee-item">Coastal Plumbing Co.</span><span class="marquee-item">Main Street Diner</span><span class="marquee-item">Riverside Fitness</span><span class="marquee-item">Hometown HVAC</span></div></div></section>
+
+    <!-- NICK'S STORY -->
+    <section class="leftclick-section origin-section">
+      <div class="common-wrap">
+        <div class="titile-wrap centered">
+          <h2 class="h2">Building with AI since 2022.</h2>
+        </div>
+        <div class="origin-grid">
+          <div class="origin-text">
+            <p>In 2022, Hamad started working with the first generation of language models to automate content and bulk image generation. He shipped a few personal projects, and one of them took off.</p>
+            <p>From there, he began experimenting with AI to automate content production, and eventually founded 1SecondCopy, an AI content agency he scaled to a profitable, lean operation run by a small team.</p>
+            <p>Later, he'd launch and scale AI 247, putting the same automations to work driving growth for agencies and service businesses.</p>
+            <p>He's since taught AI automation to thousands of professionals all over the world, and generated $320K+ in revenue for clients across 12 industries.</p>
+
+          </div>
+          <div class="origin-image">
+            <img loading="lazy" decoding="async" src="scraped/images/team-hamad.png" alt="Hamad Alismail">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="leftclick-section about-team-section">
+      <div class="common-wrap">
+        <div class="titile-wrap centered">
+          <h2 class="h2">Our leadership.</h2>
+          <p class="lead-text max-800" style="margin-top:.5em">Our leadership team owns every project end-to-end; behind them is a group of exceptionally talented engineers &amp; consultants.</p>
+        </div>
+        <div class="about-team-grid">
+
+          <div class="about-team-card">
+            <div class="about-team-photo">
+              <img loading="lazy" decoding="async" src="scraped/images/team-hamad.png" alt="Hamad Alismail">
+            </div>
+            <div class="about-team-info">
+              <div class="about-team-name">Hamad Alismail</div>
+              <div class="about-team-role">Co-Founder &amp; CEO</div>
+              <p class="about-team-bio">Hamad's hands-on track record means every system AI 247 sells has been demonstrated, explained, and stress-tested with real businesses. Builder first, consultant second.</p>
+            </div>
+          </div>
+
+          <div class="about-team-card">
+            <div class="about-team-photo">
+              <img loading="lazy" decoding="async" src="scraped/images/team-member-2.png" alt="Mohammed Alsagahb">
+            </div>
+            <div class="about-team-info">
+              <div class="about-team-name">Mohammed Alsagahb</div>
+              <div class="about-team-role">Co-Founder &amp; COO</div>
+              <p class="about-team-bio">As Co-Founder &amp; COO, Mohammed runs the engine room of AI 247, owning delivery, operations, and quality across every engagement we take on.<br><br>He has spent his career building and scaling technical teams, pairing deep engineering experience with the operational discipline to ship complex work on time and at standard. Mohammed turns strategy into execution, designing the processes that let us move fast without breaking what matters, and personally stands behind every solution we deliver, tested, documented, and built to last.</p>
+            </div>
+          </div>
+
+          <div class="about-team-card">
+            <div class="about-team-photo">
+              <img loading="lazy" decoding="async" src="scraped/images/team-member-3.png" alt="Noura Alqahtani">
+            </div>
+            <div class="about-team-info">
+              <div class="about-team-name">Noura Alqahtani</div>
+              <div class="about-team-role">Head of AI Solutions</div>
+              <p class="about-team-bio">Noura leads the design of every AI solution we build, from intelligent automations and agent workflows to the end-to-end systems that cut overhead and accelerate growth for each client we take on.<br><br>She turns ambiguous business problems into clean, production-grade AI that teams actually adopt, drawing on deep expertise across automation, data, and applied machine learning. Practical, measurable, and built to scale.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="leftclick-section why-section">
+      <div class="common-wrap">
+        <div class="why-inner">
+          <div class="titile-wrap centered">
+            <h2 class="h2">Building, consulting, &amp; training.</h2>
+          </div>
+          <div class="why-grid">
+            <div class="why-card"><h3 class="why-card-title">Building with AI since 2022</h3><p class="why-card-text">We were building with the first generation of language models before most businesses caught on, and have four years of production AI systems under our belts.</p></div>
+            <div class="why-card"><h3 class="why-card-title">Fixed price, no surprises</h3><p class="why-card-text">Every engagement gets a clear scope, timeline, and fixed price. No hourly billing, no scope creep, no mystery invoices.</p></div>
+            <div class="why-card"><h3 class="why-card-title">Public track record</h3><p class="why-card-text">Hamad has built in public since 2022, and teaches AI to professionals all over the world. Every system we sell has been demonstrated, explained, and stress-tested in the field.</p></div>
+            <div class="why-card"><h3 class="why-card-title">We use our own systems</h3><p class="why-card-text">All of our companies and products (AI 247, DMC, Clairvo) use the same automations we help you install. Our systems work because we depend on them, too.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="leftclick-section cta-section">
+      <div class="cta-glow"></div>
+      <div class="common-wrap">
+        <div class="cta-inner">
+          <h2 class="h2 cta-heading">Ready to scale with AI?</h2>
+          <p class="lead-text cta-sub">Book a free 30-minute growth mapping call. We will audit your funnel, find the bottlenecks, and show you exactly where AI moves the needle.</p>
+          <p style="color:hsla(0,0%,100%,.35);font-size:.85em;margin-top:.25em">Engagements typically start at $2K. Most projects range $3K-$15K.</p>
+          <div class="cta-btn-wrap">
+            <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn">
+              <div class="btn-text-wrap">
+                <div class="btn-text">Book a free growth call</div>
+                <div class="btn-text-hover">Book a free growth call</div>
+              </div>
+              <div class="btn-icon-box">
+                <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon-hover">
+                <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <section class="leftclick-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn btn-light">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                  <div class="btn-text-hover">Let's talk</div>
+                </div>
+                <div class="btn-icon-box dark-bg">
+                  <img src="scraped/images/68a7178e15c36fdfc68f911d_Vector_20_1_.svg" alt="" class="btn-icon-hover">
+                  <img src="scraped/images/68a7178e15c36fdfc68f911d_Vector_20_1_.svg" alt="" class="btn-icon">
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Hamad Alismail</p>
+              <a href="#" target="_blank" rel="noopener" class="footer-link">YouTube</a>
+              <a href="#" target="_blank" rel="noopener" class="footer-link">Instagram</a>
+              <a href="#" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+              <a href="#" target="_blank" rel="noopener" class="footer-link">X / Twitter</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Learn</p>
+              <a href="#" target="_blank" rel="noopener" class="footer-link">Free Courses</a>
+              <a href="#" target="_blank" rel="noopener" class="footer-link">Tutorials</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class='footer-link' href='about.html'>About</a>
+              <a class='footer-link' href='index.html#case-studies'>Case Studies</a>
+              <a class='footer-link' href='services.html'>Services</a>
+              <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="footer-link">Book a Call</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo">
+              <img src="scraped/images/ai247-logo-light.png" alt="AI 247 Automation" class="full-width">
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class='footer-nav-link' href='privacy.html'>Privacy Policy</a>
+              <a class='footer-nav-link' href='terms.html'>Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 AI 247 Inc. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dark mode toggle -->
+  <a href="https://wa.me/966536000087" target="_blank" rel="noopener" class="wa-float" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.9 1.13-.17.19-.33.21-.61.07-1.66-.83-2.75-1.48-3.84-3.36-.29-.5.29-.46.83-1.53.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.41 1.27 4.85L2 22l5.27-1.38a9.9 9.9 0 0 0 4.73 1.2h.01c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.9 9.9 0 0 0 12 2.04zm0 18.18h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.25-8.25 2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.42 5.84c0 4.55-3.7 8.23-8.25 8.23z"/></svg></a><button class="dark-mode-toggle" id="darkToggle" aria-label="Toggle dark mode">
+    <svg class="dark-mode-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    <svg class="dark-mode-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <script>
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const body = document.body;
+      const saved = localStorage.getItem('darkMode');
+      if (saved === 'true' || (saved === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        body.classList.add('dark-mode');
+      }
+      toggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+      });
+    })();
+  </script>
+  <script src="interactions.js"></script>
+  <script src="i18n.js"></script>
+
+</body>
+</html>

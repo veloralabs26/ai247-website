@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 268 28" width="268" height="28" fill="none">
+  <!-- Icon: double chevron — forward momentum / 24-7 always on -->
+  <path fill="#000" d="M3 2.5L13 14 3 25.5h5L18 14 8 2.5z"/>
+  <path fill="#000" d="M13 2.5L23 14 13 25.5h5L28 14 18 2.5z"/>
+  <!-- Wordmark -->
+  <text x="38" y="20.5" font-family="DM Sans, Arial, sans-serif" font-size="17" font-weight="500" fill="#000" letter-spacing="-0.4">AI 247 Automation</text>
+</svg>

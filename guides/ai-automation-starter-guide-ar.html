@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل البدء في الأتمتة بالذكاء الاصطناعي — AI 247</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#111113; --paper:#ffffff; --soft:#f0f0f2; --muted:#5b5b63; --line:#e4e4e8; --accent:#1a1a2e; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Cairo','Segoe UI',Tahoma,sans-serif; color:var(--ink); background:#d9d9de; line-height:1.85; -webkit-font-smoothing:antialiased; }
+  .page{ width:210mm; min-height:297mm; background:var(--paper); margin:14px auto; padding:24mm 22mm; position:relative; box-shadow:0 8px 40px rgba(0,0,0,.12); overflow:hidden; }
+  .cover{ background:radial-gradient(ellipse 90% 70% at 50% 30%, #1a1a2e 0%, #111113 70%); color:var(--soft); display:flex; flex-direction:column; justify-content:space-between; padding:26mm 22mm; }
+  .cover-logo{ width:46mm; } .cover-logo img{ width:100%; display:block; }
+  .cover-eyebrow{ font-size:12pt; letter-spacing:0; color:hsla(0,0%,100%,.55); margin-bottom:10mm; }
+  .cover-title{ font-size:34pt; font-weight:700; line-height:1.25; max-width:15em; }
+  .cover-sub{ font-size:13pt; color:hsla(0,0%,100%,.6); margin-top:8mm; max-width:30em; line-height:1.9; }
+  .cover-foot{ display:flex; justify-content:space-between; align-items:flex-end; font-size:10pt; color:hsla(0,0%,100%,.45); }
+  .cover-pill{ display:inline-block; border:1px solid hsla(0,0%,100%,.25); border-radius:2em; padding:.5em 1.1em; font-size:10pt; color:hsla(0,0%,100%,.7); }
+  .run-head{ display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:6mm; margin-bottom:10mm; }
+  .run-head .brand img{ height:7mm; display:block; }
+  .run-head .tag{ font-size:9.5pt; color:var(--muted); }
+  .run-foot{ position:absolute; left:22mm; right:22mm; bottom:14mm; display:flex; justify-content:space-between; font-size:9pt; color:var(--muted); border-top:1px solid var(--line); padding-top:4mm; }
+  h2.sec{ font-size:21pt; font-weight:700; line-height:1.4; margin:0 0 5mm; }
+  .kicker{ font-size:10pt; font-weight:600; color:var(--accent); margin-bottom:3mm; }
+  p.body{ font-size:12pt; color:#2c2c33; margin-bottom:5mm; }
+  .lead{ font-size:13pt; color:var(--muted); margin-bottom:8mm; line-height:1.9; }
+  .step{ display:flex; gap:5mm; padding:5mm 0; border-bottom:1px solid var(--line); }
+  .step:last-child{ border-bottom:none; }
+  .step-num{ flex-shrink:0; width:9mm; height:9mm; border-radius:50%; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; font-size:11pt; font-weight:600; }
+  .step h3{ font-size:13pt; font-weight:600; margin-bottom:1.5mm; }
+  .step p{ font-size:11pt; color:var(--muted); }
+  .callout{ background:var(--soft); border-radius:6px; padding:7mm; margin:8mm 0; }
+  .callout .kicker{ color:var(--ink); } .callout p{ font-size:11.5pt; color:#2c2c33; }
+  ul.check{ list-style:none; margin:4mm 0; }
+  ul.check li{ font-size:11.5pt; color:#2c2c33; padding:2.5mm 8mm 2.5mm 0; position:relative; }
+  ul.check li:before{ content:'✓'; position:absolute; right:0; top:2.5mm; color:var(--ink); font-weight:700; }
+  .cta{ background:radial-gradient(ellipse 90% 70% at 50% 45%, #1a1a2e 0%, #111113 72%); color:var(--soft); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:6mm; }
+  .cta-logo{ width:40mm; margin-bottom:4mm; } .cta-logo img{ width:100%; }
+  .cta h2{ font-size:28pt; font-weight:700; max-width:14em; line-height:1.4; }
+  .cta p{ font-size:13pt; color:hsla(0,0%,100%,.6); max-width:26em; line-height:1.9; }
+  .cta .btn{ background:var(--soft); color:var(--ink); border-radius:2em; padding:.85em 1.8em; font-size:12pt; font-weight:600; margin-top:3mm; display:inline-block; text-decoration:none; }
+  .cta .url{ font-size:11pt; color:hsla(0,0%,100%,.5); margin-top:2mm; }
+  @page{ size:A4; margin:0; }
+  @media print{ body{ background:#fff; } .page{ margin:0; box-shadow:none; page-break-after:always; } .page:last-child{ page-break-after:auto; } }
+</style>
+</head>
+<body>
+
+  <section class="page cover">
+    <div class="cover-logo"><img src="../scraped/images/ai247-logo-light.png" alt="AI 247"></div>
+    <div>
+      <div class="cover-eyebrow">دليل مجاني</div>
+      <h1 class="cover-title">دليل البدء في الأتمتة بالذكاء الاصطناعي</h1>
+      <p class="cover-sub">كيف توفّر الأعمال اليومية ساعات من العمل اليدوي كل أسبوع عبر أتمتة بسيطة وموثوقة بالذكاء الاصطناعي، دون توظيف فريق تقني.</p>
+    </div>
+    <div class="cover-foot"><span class="cover-pill">من AI 247</span><span>ai247.sa</span></div>
+  </section>
+
+  <section class="page">
+    <div class="run-head"><div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div><div class="tag">دليل البدء في الأتمتة</div></div>
+    <div class="kicker">ابدأ من هنا</div>
+    <h2 class="sec">لماذا الأتمتة أصلاً؟</h2>
+    <p class="lead">تخسر معظم الأنشطة بين 8 و15 ساعة أسبوعياً في عمل يستطيع الحاسب إنجازه بنفسه: نسخ البيانات بين الأدوات، ومتابعة العملاء، وإرسال الردود نفسها، وبناء التقارير نفسها.</p>
+    <p class="body">الأتمتة بالذكاء الاصطناعي لا تحلّ محل فريقك، بل تزيل الجزء الممل والمتكرر من يومه ليركّز على العملاء والنمو. والأجمل: لست بحاجة لأن تكون تقنياً، ولا أن تؤتمت كل شيء دفعة واحدة. تبدأ بمهمة واحدة مؤلمة، تثبت نجاحها، ثم توسّع.</p>
+    <div class="callout">
+      <div class="kicker">قاعدة 80/20 في الأتمتة</div>
+      <p>نحو 80% من الوقت الذي ستستعيده يأتي من أتمتة عدد قليل من المهام فقط: استقبال العملاء، والمتابعة، والحجز، وإدخال البيانات، والتقارير. ابدأ بها أولاً.</p>
+    </div>
+    <p class="body">في هذا الدليل سنشرح الطريقة المكوّنة من 4 خطوات التي نستخدمها مع عملائنا لاكتشاف وبناء وإطلاق أتمتة تسدّد تكلفتها بنفسها، عادةً خلال الشهر الأول.</p>
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>01</span></div>
+  </section>
+
+  <section class="page">
+    <div class="run-head"><div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div><div class="tag">دليل البدء في الأتمتة</div></div>
+    <div class="kicker">الطريقة</div>
+    <h2 class="sec">أربع خطوات لأول أتمتة لك</h2>
+    <div class="step"><div class="step-num">1</div><div><h3>حدّد مهمة واحدة مرهقة</h3><p>اختر مهمة متكررة واحدة تستهلك وقتاً كل أسبوع، مثل نقل الاستفسارات من نموذج إلى جدول، أو إرسال رسالة المتابعة نفسها. اكتب كل خطوة كما يفعلها الإنسان اليوم.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div><h3>اختر المُشغّل والأدوات</h3><p>حدّد ما الذي يبدأ المهمة (عميل جديد، حجز، مؤقّت يومي) وأي تطبيقات تمسّها. معظم الأتمتة تربط بين أداتين أو ثلاث تستخدمها أصلاً: نظام العملاء، البريد، واتساب، أو جدول البيانات.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div><h3>ابنِها صغيرة واختبرها مباشرةً</h3><p>ابنِ أبسط نسخة تعمل من البداية للنهاية، ثم شغّلها على بيانات حقيقية وراقبها بضعة أيام. الهدف أن تكون موثوقة لا ذكية؛ فالأتمتة المملّة التي لا تتعطّل تتفوّق على الذكية التي تتعطّل.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div><h3>قِس ثم وسّع</h3><p>تابع الساعات الموفّرة والأخطاء المتجنّبة. وبمجرد أن تستقر أتمتة واحدة، استخدم الوقت الذي وفّرته لبناء التالية. هذا التراكم هو مكمن العائد الحقيقي.</p></div></div>
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>02</span></div>
+  </section>
+
+  <section class="page">
+    <div class="run-head"><div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div><div class="tag">دليل البدء في الأتمتة</div></div>
+    <div class="kicker">مكاسب سريعة</div>
+    <h2 class="sec">5 أتمتة تبدأ بها هذا الأسبوع</h2>
+    <ul class="check">
+      <li><strong>استقبال فوري للعملاء</strong> — تتدفّق الاستفسارات الجديدة مباشرةً إلى نظامك أو جدولك، موسومة ومؤرّخة.</li>
+      <li><strong>متابعة تلقائية</strong> — تخرج رسالة ودّية عبر واتساب أو البريد خلال دقائق، فلا يبرد أي عميل.</li>
+      <li><strong>حجز ذكي</strong> — تتأكّد المواعيد وتُذكّر وتُعاد جدولتها بنفسها، بلا أخذ وردّ.</li>
+      <li><strong>فرز الوارد بالذكاء الاصطناعي</strong> — تُصنّف الرسائل وتُلخّص وتُوجّه إلى الشخص المناسب.</li>
+      <li><strong>تقرير أسبوعي تلقائي</strong> — تصل أرقامك المهمة إلى بريدك كل يوم اثنين، جاهزة.</li>
+    </ul>
+    <div class="callout">
+      <div class="kicker">قاعدة عامة</div>
+      <p>إذا كانت المهمة متكررة وقائمة على قواعد وتُنجَز أكثر من بضع مرات أسبوعياً، فهي مرشّحة للأتمتة. وإذا كانت تتطلّب حكماً بشرياً حقيقياً، فأبقِها بشرية، ودع الذكاء الاصطناعي يتولّى ما حولها.</p>
+    </div>
+    <p class="body">لست مضطراً لاكتشاف ذلك وحدك. في مكالمة مجانية سنرسم مسار عملائك، ونحدّد أعلى أتمتة تأثيراً لنشاطك، ونريك بالضبط ما يلزم لتنفيذها.</p>
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>03</span></div>
+  </section>
+
+  <section class="page cta">
+    <div class="cta-logo"><img src="../scraped/images/ai247-logo-light.png" alt="AI 247"></div>
+    <h2>جاهز لاستعادة ساعات كل أسبوع؟</h2>
+    <p>احجز مكالمة مجانية مدتها 30 دقيقة. سنجد أعلى أتمتة تأثيراً لك ونريك بالضبط أين يصنع الذكاء الاصطناعي الفرق.</p>
+    <a class="btn" href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener">احجز مكالمة مجانية</a>
+    <div class="url"><a href="https://wa.me/966536000087" style="color:inherit">واتساب +966 53 600 0087</a> · ai247.sa</div>
+  </section>
+
+</body>
+</html>

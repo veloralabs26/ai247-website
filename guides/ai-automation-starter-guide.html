@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Automation Starter Guide — AI 247</title>
+<style>
+  @font-face { font-family:'Dmsans'; src:url('../fonts/DMSans-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+  @font-face { font-family:'Dmsans'; src:url('../fonts/DMSans-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+  :root{ --ink:#111113; --paper:#ffffff; --soft:#f0f0f2; --muted:#5b5b63; --line:#e4e4e8; --accent:#1a1a2e; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Dmsans',Arial,sans-serif; color:var(--ink); background:#d9d9de; line-height:1.55; -webkit-font-smoothing:antialiased; }
+
+  /* Each .page is one A4 sheet */
+  .page{
+    width:210mm; min-height:297mm; background:var(--paper); margin:14px auto;
+    padding:24mm 22mm; position:relative; box-shadow:0 8px 40px rgba(0,0,0,.12); overflow:hidden;
+  }
+
+  /* ── Cover ── */
+  .cover{ background:radial-gradient(ellipse 90% 70% at 50% 30%, #1a1a2e 0%, #111113 70%); color:var(--soft);
+    display:flex; flex-direction:column; justify-content:space-between; padding:26mm 22mm; }
+  .cover-logo{ width:46mm; }
+  .cover-logo img{ width:100%; display:block; }
+  .cover-eyebrow{ font-size:11pt; letter-spacing:.22em; text-transform:uppercase; color:hsla(0,0%,100%,.55); margin-bottom:10mm; }
+  .cover-title{ font-size:40pt; font-weight:500; letter-spacing:-1.5px; line-height:1.05; max-width:15em; }
+  .cover-sub{ font-size:13pt; color:hsla(0,0%,100%,.6); margin-top:8mm; max-width:26em; line-height:1.6; }
+  .cover-foot{ display:flex; justify-content:space-between; align-items:flex-end; font-size:10pt; color:hsla(0,0%,100%,.45); }
+  .cover-pill{ display:inline-block; border:1px solid hsla(0,0%,100%,.25); border-radius:2em; padding:.5em 1.1em; font-size:10pt; color:hsla(0,0%,100%,.7); }
+
+  /* ── Brand running header / footer on content pages ── */
+  .run-head{ display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line);
+    padding-bottom:6mm; margin-bottom:10mm; }
+  .run-head .brand{ display:flex; align-items:center; gap:3mm; font-weight:500; font-size:11pt; letter-spacing:-.01em; }
+  .run-head .brand img{ height:7mm; }
+  .run-head .tag{ font-size:9pt; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+  .run-foot{ position:absolute; left:22mm; right:22mm; bottom:14mm; display:flex; justify-content:space-between;
+    font-size:9pt; color:var(--muted); border-top:1px solid var(--line); padding-top:4mm; }
+
+  h2.sec{ font-size:22pt; font-weight:500; letter-spacing:-.6px; line-height:1.1; margin:0 0 5mm; }
+  .kicker{ font-size:9.5pt; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin-bottom:3mm; }
+  p.body{ font-size:11.5pt; color:#2c2c33; margin-bottom:5mm; }
+  .lead{ font-size:13pt; color:var(--muted); margin-bottom:8mm; line-height:1.6; }
+
+  .step{ display:flex; gap:5mm; padding:5mm 0; border-bottom:1px solid var(--line); }
+  .step:last-child{ border-bottom:none; }
+  .step-num{ flex-shrink:0; width:9mm; height:9mm; border-radius:50%; background:var(--ink); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:11pt; font-weight:500; }
+  .step h3{ font-size:13pt; font-weight:500; margin-bottom:1.5mm; }
+  .step p{ font-size:10.5pt; color:var(--muted); }
+
+  .callout{ background:var(--soft); border-radius:6px; padding:7mm; margin:8mm 0; }
+  .callout .kicker{ color:var(--ink); }
+  .callout p{ font-size:11pt; color:#2c2c33; }
+
+  ul.check{ list-style:none; margin:4mm 0; }
+  ul.check li{ font-size:11pt; color:#2c2c33; padding:2.5mm 0 2.5mm 8mm; position:relative; }
+  ul.check li:before{ content:'✓'; position:absolute; left:0; top:2.5mm; width:5mm; height:5mm; color:var(--ink); font-weight:700; }
+
+  /* ── Final CTA page ── */
+  .cta{ background:radial-gradient(ellipse 90% 70% at 50% 45%, #1a1a2e 0%, #111113 72%); color:var(--soft);
+    display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:6mm; }
+  .cta-logo{ width:40mm; margin-bottom:4mm; }
+  .cta-logo img{ width:100%; }
+  .cta h2{ font-size:30pt; font-weight:500; letter-spacing:-1px; max-width:14em; }
+  .cta p{ font-size:13pt; color:hsla(0,0%,100%,.6); max-width:26em; line-height:1.6; }
+  .cta .btn{ background:var(--soft); color:var(--ink); border-radius:2em; padding:.85em 1.8em; font-size:12pt; font-weight:500; margin-top:3mm; display:inline-block; }
+  .cta .url{ font-size:11pt; color:hsla(0,0%,100%,.5); margin-top:2mm; }
+
+  @page{ size:A4; margin:0; }
+  @media print{
+    body{ background:#fff; }
+    .page{ margin:0; box-shadow:none; page-break-after:always; }
+    .page:last-child{ page-break-after:auto; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- COVER -->
+  <section class="page cover">
+    <div class="cover-logo"><img src="../scraped/images/ai247-logo-light.png" alt="AI 247"></div>
+    <div>
+      <div class="cover-eyebrow">Free Guide</div>
+      <h1 class="cover-title">The AI Automation Starter Guide</h1>
+      <p class="cover-sub">How everyday businesses cut hours of manual busywork every week with simple, reliable AI automation, without hiring a tech team.</p>
+    </div>
+    <div class="cover-foot">
+      <span class="cover-pill">By AI 247</span>
+      <span>ai247.sa</span>
+    </div>
+  </section>
+
+  <!-- PAGE 1 -->
+  <section class="page">
+    <div class="run-head">
+      <div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div>
+      <div class="tag">The AI Automation Starter Guide</div>
+    </div>
+
+    <div class="kicker">Start here</div>
+    <h2 class="sec">Why automate at all?</h2>
+    <p class="lead">Most businesses lose 8–15 hours a week to work a computer could do on its own: copying data between tools, chasing leads, sending the same replies, building the same reports.</p>
+    <p class="body">AI automation doesn't replace your team, it removes the boring, repetitive part of their day so they can focus on customers and growth. The best part: you don't need to be technical, and you don't need to automate everything at once. You start with one painful task, prove it works, then expand.</p>
+
+    <div class="callout">
+      <div class="kicker">The 80/20 of automation</div>
+      <p>Roughly 80% of the time you'll get back comes from automating just a handful of tasks: lead intake, follow-up, scheduling, data entry, and reporting. Nail those first.</p>
+    </div>
+
+    <p class="body">In this guide we'll walk through the exact 4-step approach we use with our own clients to find, build, and launch automations that pay for themselves, usually within the first month.</p>
+
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>01</span></div>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="page">
+    <div class="run-head">
+      <div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div>
+      <div class="tag">The AI Automation Starter Guide</div>
+    </div>
+
+    <div class="kicker">The method</div>
+    <h2 class="sec">Four steps to your first automation</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div><h3>Map one painful task</h3><p>Pick a single repetitive task that eats time every week, e.g. copying enquiries from a form into a spreadsheet, or sending the same follow-up message. Write down each step exactly as a human does it today.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div><h3>Choose the trigger &amp; the tools</h3><p>Decide what kicks it off (a new lead, a booking, a daily timer) and which apps it touches. Most automations connect 2–3 tools you already use, your CRM, inbox, WhatsApp, or spreadsheet.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div><h3>Build it small, test it live</h3><p>Build the simplest version that works end-to-end, then run it on real data. Watch it for a few days. The goal is reliable, not clever, a boring automation that never breaks beats a smart one that does.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div><h3>Measure, then expand</h3><p>Track hours saved and errors avoided. Once one automation is solid, use the time it frees up to build the next. This compounding is where the real ROI lives.</p></div>
+    </div>
+
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>02</span></div>
+  </section>
+
+  <!-- PAGE 3 -->
+  <section class="page">
+    <div class="run-head">
+      <div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div>
+      <div class="tag">The AI Automation Starter Guide</div>
+    </div>
+
+    <div class="kicker">Quick wins</div>
+    <h2 class="sec">5 automations to start with this week</h2>
+    <ul class="check">
+      <li><strong>Instant lead capture</strong> — new enquiries flow straight into your CRM or sheet, tagged and timestamped.</li>
+      <li><strong>Auto follow-up</strong> — a friendly WhatsApp or email goes out within minutes, so no lead goes cold.</li>
+      <li><strong>Smart scheduling</strong> — bookings confirm, remind, and reschedule themselves, no back-and-forth.</li>
+      <li><strong>AI inbox triage</strong> — incoming messages get sorted, summarised, and routed to the right person.</li>
+      <li><strong>Weekly report on autopilot</strong> — your key numbers land in your inbox every Monday, built for you.</li>
+    </ul>
+
+    <div class="callout">
+      <div class="kicker">Rule of thumb</div>
+      <p>If a task is repetitive, rule-based, and done more than a few times a week, it's a candidate for automation. If it needs real judgement or a human touch, keep it human, and let AI handle everything around it.</p>
+    </div>
+
+    <p class="body">You don't have to figure this out alone. On a free call we'll map your funnel, spot the highest-impact automation for your business, and show you exactly what it would take to ship it.</p>
+
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>03</span></div>
+  </section>
+
+  <!-- CTA -->
+  <section class="page cta">
+    <div class="cta-logo"><img src="../scraped/images/ai247-logo-light.png" alt="AI 247"></div>
+    <h2>Ready to get hours back every week?</h2>
+    <p>Book a free 30-minute growth mapping call. We'll find your highest-impact automation and show you exactly where AI moves the needle.</p>
+    <a class="btn" href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" style="text-decoration:none">Book a free call</a>
+    <div class="url"><a href="https://wa.me/966536000087" style="color:inherit">WhatsApp +966 53 600 0087</a><br>cal.com/team/ai247automation-team · ai247.sa</div>
+  </section>
+
+</body>
+</html>

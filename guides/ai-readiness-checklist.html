@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Readiness Checklist — AI 247</title>
+<style>
+  @font-face { font-family:'Dmsans'; src:url('../fonts/DMSans-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+  @font-face { font-family:'Dmsans'; src:url('../fonts/DMSans-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+  :root{ --ink:#111113; --paper:#fff; --soft:#f0f0f2; --muted:#5b5b63; --line:#e4e4e8; --accent:#1a1a2e; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Dmsans',Arial,sans-serif; color:var(--ink); background:#d9d9de; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .page{ width:210mm; min-height:297mm; background:var(--paper); margin:14px auto; padding:24mm 22mm; position:relative; box-shadow:0 8px 40px rgba(0,0,0,.12); overflow:hidden; }
+  .cover{ background:radial-gradient(ellipse 90% 70% at 50% 30%, #1a1a2e 0%, #111113 70%); color:var(--soft); display:flex; flex-direction:column; justify-content:space-between; padding:26mm 22mm; }
+  .cover-logo{ width:46mm; } .cover-logo img{ width:100%; display:block; }
+  .cover-eyebrow{ font-size:11pt; letter-spacing:.22em; text-transform:uppercase; color:hsla(0,0%,100%,.55); margin-bottom:10mm; }
+  .cover-title{ font-size:40pt; font-weight:500; letter-spacing:-1.5px; line-height:1.05; max-width:15em; }
+  .cover-sub{ font-size:13pt; color:hsla(0,0%,100%,.6); margin-top:8mm; max-width:26em; line-height:1.6; }
+  .cover-foot{ display:flex; justify-content:space-between; align-items:flex-end; font-size:10pt; color:hsla(0,0%,100%,.45); }
+  .cover-pill{ display:inline-block; border:1px solid hsla(0,0%,100%,.25); border-radius:2em; padding:.5em 1.1em; font-size:10pt; color:hsla(0,0%,100%,.7); }
+  .run-head{ display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:6mm; margin-bottom:8mm; }
+  .run-head .brand{ display:flex; align-items:center; gap:3mm; font-weight:500; font-size:11pt; } .run-head .brand img{ height:7mm; }
+  .run-head .tag{ font-size:9pt; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+  .run-foot{ position:absolute; left:22mm; right:22mm; bottom:14mm; display:flex; justify-content:space-between; font-size:9pt; color:var(--muted); border-top:1px solid var(--line); padding-top:4mm; }
+  h2.sec{ font-size:20pt; font-weight:500; letter-spacing:-.5px; line-height:1.1; margin:0 0 4mm; }
+  .kicker{ font-size:9.5pt; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin-bottom:3mm; }
+  p.body{ font-size:11pt; color:#2c2c33; margin-bottom:4mm; } .lead{ font-size:12.5pt; color:var(--muted); margin-bottom:6mm; line-height:1.6; }
+  .grp{ margin-bottom:6mm; } .grp h3{ font-size:12pt; font-weight:500; margin-bottom:2mm; }
+  .chk{ display:flex; align-items:flex-start; gap:4mm; padding:2.2mm 0; font-size:10.5pt; color:#2c2c33; }
+  .box{ flex-shrink:0; width:4.5mm; height:4.5mm; border:1.5px solid var(--ink); border-radius:2px; margin-top:1mm; }
+  .callout{ background:var(--soft); border-radius:6px; padding:6mm; margin:6mm 0; } .callout .kicker{ color:var(--ink); } .callout p{ font-size:10.5pt; color:#2c2c33; }
+  .score{ display:flex; gap:4mm; margin-top:4mm; } .score div{ flex:1; background:var(--soft); border-radius:6px; padding:5mm; }
+  .score h4{ font-size:11pt; font-weight:500; margin-bottom:1.5mm; } .score p{ font-size:9.5pt; color:var(--muted); }
+  .cta{ background:radial-gradient(ellipse 90% 70% at 50% 45%, #1a1a2e 0%, #111113 72%); color:var(--soft); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:6mm; }
+  .cta-logo{ width:40mm; margin-bottom:4mm; } .cta-logo img{ width:100%; }
+  .cta h2{ font-size:30pt; font-weight:500; letter-spacing:-1px; max-width:14em; } .cta p{ font-size:13pt; color:hsla(0,0%,100%,.6); max-width:26em; line-height:1.6; }
+  .cta .btn{ background:var(--soft); color:var(--ink); border-radius:2em; padding:.85em 1.8em; font-size:12pt; font-weight:500; margin-top:3mm; display:inline-block; }
+  .cta .url{ font-size:11pt; color:hsla(0,0%,100%,.5); margin-top:2mm; }
+  @page{ size:A4; margin:0; }
+  @media print{ body{ background:#fff; } .page{ margin:0; box-shadow:none; page-break-after:always; } .page:last-child{ page-break-after:auto; } }
+</style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="cover-logo"><img src="../scraped/images/ai247-logo-light.png" alt="AI 247"></div>
+    <div>
+      <div class="cover-eyebrow">Free Checklist</div>
+      <h1 class="cover-title">The AI Readiness Checklist</h1>
+      <p class="cover-sub">Print this, tick the boxes, and find out exactly how ready your business is to automate, and what to fix first.</p>
+    </div>
+    <div class="cover-foot"><span class="cover-pill">By AI 247</span><span>ai247.sa</span></div>
+  </section>
+
+  <section class="page">
+    <div class="run-head"><div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div><div class="tag">The AI Readiness Checklist</div></div>
+    <div class="kicker">Tick every box that's true</div>
+    <h2 class="sec">Score your readiness</h2>
+    <p class="lead">Eighteen checks across four areas. Count your ticks, your score is on the next page.</p>
+
+    <div class="grp"><h3>1. Processes</h3>
+      <div class="chk"><span class="box"></span><span>We can name 3+ repetitive tasks that eat time every week.</span></div>
+      <div class="chk"><span class="box"></span><span>Those tasks follow clear, repeatable steps (not pure judgement calls).</span></div>
+      <div class="chk"><span class="box"></span><span>We know roughly how many hours each one takes per month.</span></div>
+      <div class="chk"><span class="box"></span><span>The same work is done the same way each time, regardless of who does it.</span></div>
+    </div>
+    <div class="grp"><h3>2. Data &amp; tools</h3>
+      <div class="chk"><span class="box"></span><span>Our customer/lead information lives in a system (CRM or sheet), not just inboxes and heads.</span></div>
+      <div class="chk"><span class="box"></span><span>We mostly use modern tools that can connect to others (have logins / integrations).</span></div>
+      <div class="chk"><span class="box"></span><span>Our data is reasonably clean and up to date.</span></div>
+      <div class="chk"><span class="box"></span><span>We know where each important piece of information currently lives.</span></div>
+      <div class="chk"><span class="box"></span><span>We use WhatsApp, email, or a website form to talk to customers.</span></div>
+    </div>
+    <div class="grp"><h3>3. Team &amp; ownership</h3>
+      <div class="chk"><span class="box"></span><span>Someone will own the rollout and answer questions.</span></div>
+      <div class="chk"><span class="box"></span><span>The team is open to changing how a few tasks get done.</span></div>
+      <div class="chk"><span class="box"></span><span>Leadership wants to free up time for growth, not just cut costs.</span></div>
+    </div>
+    <div class="grp"><h3>4. Goals &amp; budget</h3>
+      <div class="chk"><span class="box"></span><span>We have a clear goal (more leads, faster replies, less admin).</span></div>
+      <div class="chk"><span class="box"></span><span>We can measure success with a number or two.</span></div>
+      <div class="chk"><span class="box"></span><span>We're ready to start small and expand what works.</span></div>
+      <div class="chk"><span class="box"></span><span>We have a modest budget set aside to build the first automation.</span></div>
+      <div class="chk"><span class="box"></span><span>We'd rather fix a real bottleneck than chase the shiniest tool.</span></div>
+      <div class="chk"><span class="box"></span><span>We can commit a little time to testing over the first few weeks.</span></div>
+    </div>
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>01</span></div>
+  </section>
+
+  <section class="page">
+    <div class="run-head"><div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div><div class="tag">The AI Readiness Checklist</div></div>
+    <div class="kicker">Your result</div>
+    <h2 class="sec">What your score means</h2>
+    <div class="score">
+      <div><h4>0–6 · Foundations</h4><p>Tidy up where your data lives and pick one clear bottleneck first. You're closer than you think.</p></div>
+      <div><h4>7–12 · Ready to start</h4><p>You have what you need to automate one or two high-impact workflows now.</p></div>
+      <div><h4>13–18 · Ready to scale</h4><p>You can move fast, build a system, prove ROI, and expand across the business.</p></div>
+    </div>
+    <div class="callout"><div class="kicker">The most important box</div><p>If you ticked "we can name a repetitive task that eats time every week," you're ready to start, everything else can be built around it.</p></div>
+    <p class="body">Wherever you landed, the next step is the same: pick the single task costing you the most time, and automate that one first. We can help you find it and build it.</p>
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>02</span></div>
+  </section>
+
+  <section class="page cta">
+    <div class="cta-logo"><img src="../scraped/images/ai247-logo-light.png" alt="AI 247"></div>
+    <h2>Find out where to start.</h2>
+    <p>Book a free 30-minute call and we'll turn your checklist into a concrete first automation.</p>
+    <a class="btn" href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" style="text-decoration:none">Book a free call</a>
+    <div class="url"><a href="https://wa.me/966536000087" style="color:inherit">WhatsApp +966 53 600 0087</a><br>cal.com/team/ai247automation-team · ai247.sa</div>
+  </section>
+</body>
+</html>

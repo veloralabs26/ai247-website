@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The AI Lead-Gen Playbook — AI 247</title>
+<style>
+  @font-face { font-family:'Dmsans'; src:url('../fonts/DMSans-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+  @font-face { font-family:'Dmsans'; src:url('../fonts/DMSans-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+  :root{ --ink:#111113; --paper:#fff; --soft:#f0f0f2; --muted:#5b5b63; --line:#e4e4e8; --accent:#1a1a2e; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Dmsans',Arial,sans-serif; color:var(--ink); background:#d9d9de; line-height:1.55; -webkit-font-smoothing:antialiased; }
+  .page{ width:210mm; min-height:297mm; background:var(--paper); margin:14px auto; padding:24mm 22mm; position:relative; box-shadow:0 8px 40px rgba(0,0,0,.12); overflow:hidden; }
+  .cover{ background:radial-gradient(ellipse 90% 70% at 50% 30%, #1a1a2e 0%, #111113 70%); color:var(--soft); display:flex; flex-direction:column; justify-content:space-between; padding:26mm 22mm; }
+  .cover-logo{ width:46mm; } .cover-logo img{ width:100%; display:block; }
+  .cover-eyebrow{ font-size:11pt; letter-spacing:.22em; text-transform:uppercase; color:hsla(0,0%,100%,.55); margin-bottom:10mm; }
+  .cover-title{ font-size:40pt; font-weight:500; letter-spacing:-1.5px; line-height:1.05; max-width:15em; }
+  .cover-sub{ font-size:13pt; color:hsla(0,0%,100%,.6); margin-top:8mm; max-width:26em; line-height:1.6; }
+  .cover-foot{ display:flex; justify-content:space-between; align-items:flex-end; font-size:10pt; color:hsla(0,0%,100%,.45); }
+  .cover-pill{ display:inline-block; border:1px solid hsla(0,0%,100%,.25); border-radius:2em; padding:.5em 1.1em; font-size:10pt; color:hsla(0,0%,100%,.7); }
+  .run-head{ display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:6mm; margin-bottom:10mm; }
+  .run-head .brand{ display:flex; align-items:center; gap:3mm; font-weight:500; font-size:11pt; } .run-head .brand img{ height:7mm; }
+  .run-head .tag{ font-size:9pt; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+  .run-foot{ position:absolute; left:22mm; right:22mm; bottom:14mm; display:flex; justify-content:space-between; font-size:9pt; color:var(--muted); border-top:1px solid var(--line); padding-top:4mm; }
+  h2.sec{ font-size:22pt; font-weight:500; letter-spacing:-.6px; line-height:1.1; margin:0 0 5mm; }
+  .kicker{ font-size:9.5pt; font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); margin-bottom:3mm; }
+  p.body{ font-size:11.5pt; color:#2c2c33; margin-bottom:5mm; } .lead{ font-size:13pt; color:var(--muted); margin-bottom:8mm; line-height:1.6; }
+  .step{ display:flex; gap:5mm; padding:4mm 0; border-bottom:1px solid var(--line); } .step:last-child{ border-bottom:none; }
+  .step-num{ flex-shrink:0; width:9mm; height:9mm; border-radius:50%; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; font-size:10.5pt; font-weight:500; }
+  .step h3{ font-size:12.5pt; font-weight:500; margin-bottom:1mm; } .step p{ font-size:10pt; color:var(--muted); }
+  .callout{ background:var(--soft); border-radius:6px; padding:7mm; margin:8mm 0; } .callout .kicker{ color:var(--ink); } .callout p{ font-size:11pt; color:#2c2c33; }
+  ul.check{ list-style:none; margin:4mm 0; } ul.check li{ font-size:11pt; color:#2c2c33; padding:2.5mm 0 2.5mm 8mm; position:relative; }
+  ul.check li:before{ content:'✓'; position:absolute; left:0; top:2.5mm; color:var(--ink); font-weight:700; }
+  .cta{ background:radial-gradient(ellipse 90% 70% at 50% 45%, #1a1a2e 0%, #111113 72%); color:var(--soft); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:6mm; }
+  .cta-logo{ width:40mm; margin-bottom:4mm; } .cta-logo img{ width:100%; }
+  .cta h2{ font-size:30pt; font-weight:500; letter-spacing:-1px; max-width:14em; } .cta p{ font-size:13pt; color:hsla(0,0%,100%,.6); max-width:26em; line-height:1.6; }
+  .cta .btn{ background:var(--soft); color:var(--ink); border-radius:2em; padding:.85em 1.8em; font-size:12pt; font-weight:500; margin-top:3mm; display:inline-block; }
+  .cta .url{ font-size:11pt; color:hsla(0,0%,100%,.5); margin-top:2mm; }
+  @page{ size:A4; margin:0; }
+  @media print{ body{ background:#fff; } .page{ margin:0; box-shadow:none; page-break-after:always; } .page:last-child{ page-break-after:auto; } }
+</style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="cover-logo"><img src="../scraped/images/ai247-logo-light.png" alt="AI 247"></div>
+    <div>
+      <div class="cover-eyebrow">Free Guide</div>
+      <h1 class="cover-title">The AI Lead-Gen Playbook</h1>
+      <p class="cover-sub">Fill your pipeline on autopilot, AI-powered outbound, qualification, and follow-up that turns strangers into booked calls.</p>
+    </div>
+    <div class="cover-foot"><span class="cover-pill">By AI 247</span><span>ai247.sa</span></div>
+  </section>
+
+  <section class="page">
+    <div class="run-head"><div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div><div class="tag">The AI Lead-Gen Playbook</div></div>
+    <div class="kicker">The engine</div>
+    <h2 class="sec">The four-stage lead engine</h2>
+    <p class="lead">Reliable lead-gen isn't one clever tactic, it's a system where each stage feeds the next. AI makes every stage faster and cheaper to run.</p>
+    <div class="step"><div class="step-num">1</div><div><h3>Source</h3><p>Build a clean, targeted list of the right businesses or buyers, enriched with the details you need to personalise, automatically pulled and verified.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div><h3>Reach out</h3><p>Send personalised messages at scale across email, LinkedIn, or WhatsApp, with AI writing the relevant opening line for each prospect, not a generic blast.</p></div></div>
+    <div class="step"><div class="step-num">3</div><div><h3>Qualify</h3><p>An AI assistant handles replies, answers basic questions, and scores intent, so only genuinely interested leads reach a human.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div><h3>Book</h3><p>Hot leads are routed straight to your calendar with reminders, while warm ones drop into a nurture sequence until they're ready.</p></div></div>
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>01</span></div>
+  </section>
+
+  <section class="page">
+    <div class="run-head"><div class="brand"><img src="../scraped/images/ai247-logo-dark.png" alt="AI 247"></div><div class="tag">The AI Lead-Gen Playbook</div></div>
+    <div class="kicker">Make it convert</div>
+    <h2 class="sec">What separates a system that works</h2>
+    <ul class="check">
+      <li><strong>Relevance over volume.</strong> 200 well-targeted, personalised messages beat 5,000 generic ones, every time.</li>
+      <li><strong>Speed to lead.</strong> Reply in minutes, not hours. AI handles the instant first response around the clock.</li>
+      <li><strong>Follow-up persistence.</strong> Most replies come after the 3rd touch. Automate the sequence so it always happens.</li>
+      <li><strong>One source of truth.</strong> Every lead, message, and status lives in one CRM so nothing slips through.</li>
+      <li><strong>Measure and tune.</strong> Track reply rate, booking rate, and cost per call, then double down on what works.</li>
+    </ul>
+    <div class="callout"><div class="kicker">A realistic benchmark</div><p>A well-run AI outbound system commonly lands a 5–15% positive reply rate, several times typical cold benchmarks, because every message is relevant and every follow-up actually happens.</p></div>
+    <p class="body">The hard part isn't the tools, it's wiring them together so the whole engine runs reliably without you babysitting it. That's exactly what we build.</p>
+    <div class="run-foot"><span>© AI 247 · ai247.sa</span><span>02</span></div>
+  </section>
+
+  <section class="page cta">
+    <div class="cta-logo"><img src="../scraped/images/ai247-logo-light.png" alt="AI 247"></div>
+    <h2>Let's fill your pipeline.</h2>
+    <p>Book a free 30-minute call and we'll map an AI lead engine for your business, from list to booked call.</p>
+    <a class="btn" href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" style="text-decoration:none">Book a free call</a>
+    <div class="url"><a href="https://wa.me/966536000087" style="color:inherit">WhatsApp +966 53 600 0087</a><br>cal.com/team/ai247automation-team · ai247.sa</div>
+  </section>
+</body>
+</html>

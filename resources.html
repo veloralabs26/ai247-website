@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resources — AI 247</title>
+  <meta name="description" content="Free AI growth resources from AI 247: practical guides, an ROI calculator, and an AI readiness scorecard for businesses ready to automate.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Resources — AI 247">
+  <meta property="og:description" content="Free AI guides, an ROI calculator, and a readiness scorecard. Built by AI 247 for businesses ready to grow with AI.">
+  <meta property="og:url" content="https://ai247.sa/resources.html">
+  <meta property="og:site_name" content="AI 247">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Resources — AI 247">
+  <meta name="twitter:description" content="Free AI guides, an ROI calculator, and a readiness scorecard from AI 247.">
+  <link rel="canonical" href="https://ai247.sa/resources.html">
+  <style>
+    @font-face {
+      font-family: 'Dmsans';
+      src: url('fonts/DMSans-Regular.woff2') format('woff2'), url('fonts/DMSans-Regular.ttf') format('truetype');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Dmsans';
+      src: url('fonts/DMSans-Medium.woff2') format('woff2'), url('fonts/DMSans-Medium.ttf') format('truetype');
+      font-weight: 500; font-style: normal; font-display: swap;
+    }
+
+    /* ── Resources page ── */
+    .resources-hero {
+      justify-content: center;
+      min-height: calc(50svh - 5em);
+      padding-top: 6em;
+      padding-bottom: 3em;
+    }
+    .dark-mode .resources-hero {
+      background: radial-gradient(ellipse 80% 60% at 50% 40%, #1a1a2e 0%, #111113 70%);
+    }
+    .resources-hero-inner {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 1.25em; max-width: 52em; margin: 0 auto;
+    }
+    .resources-hero-sub {
+      font-size: 1.05em; line-height: 155%; color: rgba(0,0,0,.55); max-width: 32em;
+    }
+    .dark-mode .resources-hero-sub { color: hsla(0,0%,100%,.5); }
+
+    /* Premium tools */
+    .premium-section { padding-top: 1em; padding-bottom: 3em; }
+    .premium-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; width: 100%;
+    }
+    .premium-card {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #111113, #1a1a2e 55%, #111113);
+      border-radius: 1em; padding: 2.5em; display: flex; flex-direction: column;
+      gap: 1em; min-height: 15em; justify-content: space-between;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .premium-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0,0,0,.18); }
+    .premium-badge {
+      display: inline-flex; align-items: center; gap: .5em;
+      background: hsla(0,0%,100%,.1); color: #f0f0f2; border-radius: 2em;
+      padding: .35em .9em; font-size: .72em; font-weight: 500; letter-spacing: .04em;
+      text-transform: uppercase; width: max-content;
+    }
+    .premium-card-title { color: #f0f0f2; font-size: 1.85em; font-weight: 500; letter-spacing: -1px; line-height: 110%; }
+    .premium-card-desc { color: hsla(0,0%,100%,.55); font-size: 1em; line-height: 155%; max-width: 26em; }
+    .premium-card .btn { background-color: #f0f0f2; color: #111113; width: max-content; margin-top: .5em; }
+    .premium-card .btn-icon-box { background-color: #111113; }
+    .premium-card .btn-icon-box .btn-icon, .premium-card .btn-icon-box .btn-icon-hover { filter: invert(1); }
+    .premium-soon { color: hsla(0,0%,100%,.4); font-size: .8em; margin-top: .5em; }
+
+    /* Guides */
+    .guides-section { background-color: #f0f0f2; padding-top: 5em; padding-bottom: 6em; }
+    .dark-mode .guides-section { background: radial-gradient(ellipse 70% 50% at 50% 50%, #10101a 0%, #0a0a0c 70%); }
+    .guides-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5em; margin-top: 3em; width: 100%;
+    }
+    .guide-card {
+      background: #fff; border-radius: 1em; padding: 1.75em; display: flex; flex-direction: column;
+      gap: .85em; border: 1px solid rgba(0,0,0,.04);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .guide-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,.07); }
+    .dark-mode .guide-card { background: hsla(0,0%,100%,.06); border-color: hsla(0,0%,100%,.06); }
+    .guide-icon {
+      width: 2.75em; height: 2.75em; background: rgba(0,0,0,.06); border-radius: .8em;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .dark-mode .guide-icon { background: hsla(0,0%,100%,.1); }
+    .guide-icon svg { width: 1.4em; height: 1.4em; stroke: #111113; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .dark-mode .guide-icon svg { stroke: #f0f0f2; }
+    .guide-tag {
+      align-self: flex-start; background: rgba(0,0,0,.06); border-radius: 2em;
+      font-size: .68em; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+      padding: .3em .75em; color: rgba(0,0,0,.5);
+    }
+    .dark-mode .guide-tag { background: hsla(0,0%,100%,.1); color: hsla(0,0%,100%,.55); }
+    .guide-name { font-size: 1.2em; font-weight: 500; letter-spacing: -.01em; line-height: 120%; color: var(--black); }
+    .dark-mode .guide-name { color: #f0f0f2; }
+    .guide-desc { font-size: .92em; line-height: 155%; color: rgba(0,0,0,.55); flex: 1; }
+    .dark-mode .guide-desc { color: hsla(0,0%,100%,.5); }
+    .guide-card .download-btn {
+      align-items: center; background-color: var(--black); border-radius: 2em; color: var(--white);
+      cursor: pointer; display: inline-flex; gap: .6em; font-size: .9em; font-weight: 500;
+      padding: .6em 1.1em; border: none; width: max-content; margin-top: .25em; transition: opacity .2s; font-family: inherit;
+    }
+    .guide-card .download-btn:hover { opacity: .85; }
+    .dark-mode .guide-card .download-btn { background-color: #f0f0f2; color: #111113; }
+
+    /* Lead modal */
+    .lead-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.55); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center; padding: 1.5em;
+      opacity: 0; pointer-events: none; transition: opacity .25s ease; z-index: 10000;
+    }
+    .lead-overlay.open { opacity: 1; pointer-events: auto; }
+    .lead-modal {
+      background: #fff; border-radius: 1.25em; width: 100%; max-width: 27em; padding: 2em;
+      transform: translateY(12px) scale(.98); transition: transform .25s ease; position: relative;
+    }
+    .lead-overlay.open .lead-modal { transform: translateY(0) scale(1); }
+    .dark-mode .lead-modal { background: #1b1b20; }
+    .lead-close {
+      position: absolute; top: 1em; right: 1em; background: rgba(0,0,0,.06); border: none;
+      width: 2em; height: 2em; border-radius: 50%; cursor: pointer; font-size: 1.1em; line-height: 1;
+      color: #111; display: flex; align-items: center; justify-content: center;
+    }
+    .dark-mode .lead-close { background: hsla(0,0%,100%,.1); color: #f0f0f2; }
+    .lead-eyebrow { font-size: .72em; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: rgba(0,0,0,.4); }
+    .dark-mode .lead-eyebrow { color: hsla(0,0%,100%,.4); }
+    .lead-title { font-size: 1.4em; font-weight: 500; letter-spacing: -.02em; line-height: 120%; margin-top: .25em; color: var(--black); }
+    .dark-mode .lead-title { color: #f0f0f2; }
+    .lead-note { font-size: .85em; color: rgba(0,0,0,.5); margin-top: .5em; line-height: 150%; }
+    .dark-mode .lead-note { color: hsla(0,0%,100%,.5); }
+    .lead-form { display: flex; flex-direction: column; gap: .75em; margin-top: 1.5em; }
+    .lead-field label { display: block; font-size: .8em; font-weight: 500; margin-bottom: .35em; color: rgba(0,0,0,.7); }
+    .dark-mode .lead-field label { color: hsla(0,0%,100%,.7); }
+    .lead-field input {
+      width: 100%; padding: .8em 1em; border: 1px solid rgba(0,0,0,.14); border-radius: .7em;
+      font-family: inherit; font-size: 1em; background: #fafafa; color: #111; transition: border-color .2s;
+    }
+    .lead-field input:focus { outline: none; border-color: #111; background: #fff; }
+    .dark-mode .lead-field input { background: hsla(0,0%,100%,.06); border-color: hsla(0,0%,100%,.14); color: #f0f0f2; }
+    .lead-wa { display: flex; gap: .5em; }
+    .lead-wa .lead-cc {
+      flex-shrink: 0; width: 5.5em; padding: .8em .6em; border: 1px solid rgba(0,0,0,.14); border-radius: .7em;
+      font-family: inherit; font-size: 1em; background: #fafafa; color: #111; text-align: center;
+    }
+    .dark-mode .lead-wa .lead-cc { background: hsla(0,0%,100%,.06); border-color: hsla(0,0%,100%,.14); color: #f0f0f2; }
+    .lead-submit {
+      margin-top: .5em; background: #111113; color: #fff; border: none; border-radius: 2em;
+      padding: .9em 1.2em; font-family: inherit; font-size: 1em; font-weight: 500; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: .5em; transition: opacity .2s;
+    }
+    .lead-submit:hover { opacity: .88; }
+    .lead-submit:disabled { opacity: .5; cursor: default; }
+    .dark-mode .lead-submit { background: #f0f0f2; color: #111113; }
+    .lead-privacy { font-size: .72em; color: rgba(0,0,0,.4); margin-top: .85em; text-align: center; line-height: 150%; }
+    .dark-mode .lead-privacy { color: hsla(0,0%,100%,.4); }
+    .lead-success { display: none; text-align: center; padding: 1em 0; }
+    .lead-success.show { display: block; }
+    .lead-success-icon {
+      width: 3.5em; height: 3.5em; border-radius: 50%; background: #111113; color: #fff;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1em; font-size: 1.5em;
+    }
+    .dark-mode .lead-success-icon { background: #f0f0f2; color: #111113; }
+    .lead-form.hide { display: none; }
+    .lead-head.hide { display: none; }
+
+    @media screen and (max-width: 991px) {
+      .resources-hero { padding-top: 96px; padding-bottom: 32px; }
+      .resources-hero-inner .h1 { font-size: 36px; letter-spacing: -1px; }
+      .resources-hero-sub { font-size: 18px; }
+      .premium-row { grid-template-columns: 1fr; gap: 16px; }
+      .premium-card { padding: 28px 24px; min-height: auto; }
+      .premium-card-title { font-size: 28px; }
+      .guides-section { padding-top: 40px; padding-bottom: 48px; }
+      .guides-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 28px; }
+    }
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      .guides-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preload" as="font" href="fonts/DMSans-Regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/DMSans-Medium.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="leftclick-body">
+
+  <!-- HEADER -->
+  <div class="leftclick-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo">
+          <img fetchpriority="low" src="scraped/images/ai247-logo-dark.png" alt="AI 247 Automation" class="full-width">
+        </a>
+        <nav class="nav-wrap">
+          <a class='nav-link' href='services.html'>Services</a>
+          <a class='nav-link' href='about.html'>About</a>
+          <a class='nav-link' href='resources.html'>Resources</a>
+        </nav>
+        <div class="lang-switch"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="ar">عربي</button></div>
+        <div class="header-btn">
+          <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn">
+            <div class="btn-text-wrap">
+              <div class="btn-text">Let's talk</div>
+              <div class="btn-text-hover">Let's talk</div>
+            </div>
+            <div class="btn-icon-box">
+              <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon-hover">
+              <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon">
+            </div>
+          </a>
+        </div>
+        <button class="menu-btn" aria-label="Menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu">
+    <nav class="mobile-menu-nav">
+      <a class='mobile-menu-link' href='services.html'>Services</a>
+      <a class='mobile-menu-link' href='about.html'>About</a>
+      <a class='mobile-menu-link' href='resources.html'>Resources</a>
+      <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="mobile-menu-link">Let's talk</a>
+    </nav>
+  </div>
+
+  <main class="leftclick-section">
+
+    <!-- HERO -->
+    <section class="leftclick-section resources-hero">
+      <div class="common-wrap">
+        <div class="resources-hero-inner">
+          <h1 class="h1">Free tools &amp; guides to grow with AI.</h1>
+          <p class="resources-hero-sub">Practical, no-fluff resources we use with our own clients. Grab a guide, calculate your ROI, or score your AI readiness, all free.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM TOOLS -->
+    <section class="leftclick-section premium-section">
+      <div class="common-wrap">
+        <div class="premium-row">
+          <div class="premium-card">
+            <div>
+              <div class="premium-badge">Interactive tool</div>
+              <h2 class="premium-card-title" style="margin-top:.6em">AI ROI Calculator</h2>
+              <p class="premium-card-desc" style="margin-top:.5em">Plug in your numbers and see exactly how much time and money AI automation could save your business each month.</p>
+            </div>
+            <a href="roi-calculator.html" class="btn">
+              <div class="btn-text-wrap"><div class="btn-text">Open the calculator</div><div class="btn-text-hover">Open the calculator</div></div>
+              <div class="btn-icon-box">
+                <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon-hover">
+                <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon">
+              </div>
+            </a>
+          </div>
+          <div class="premium-card">
+            <div>
+              <div class="premium-badge">Interactive tool</div>
+              <h2 class="premium-card-title" style="margin-top:.6em">AI Readiness Scorecard</h2>
+              <p class="premium-card-desc" style="margin-top:.5em">A 2-minute quiz that scores how ready your business is to automate, and shows you the highest-impact place to start.</p>
+            </div>
+            <a href="readiness-quiz.html" class="btn">
+              <div class="btn-text-wrap"><div class="btn-text">Take the scorecard</div><div class="btn-text-hover">Take the scorecard</div></div>
+              <div class="btn-icon-box">
+                <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon-hover">
+                <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUIDES -->
+    <section class="leftclick-section guides-section">
+      <div class="common-wrap">
+        <div class="titile-wrap centered">
+          <h2 class="h2">Free guides.</h2>
+          <p class="lead-text max-800" style="margin-top:.5em">Drop your details and the PDF is yours instantly, plus we'll send it straight to your WhatsApp.</p>
+        </div>
+        <div class="guides-grid">
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div class="guide-tag">Free PDF</div>
+            <div class="guide-name">The AI Automation Starter Guide</div>
+            <div class="guide-desc">How everyday businesses cut hours of manual busywork with simple, reliable AI automations.</div>
+            <button class="download-btn" data-guide="ai-automation-starter-guide" data-title="The AI Automation Starter Guide" data-pdf="guides/ai-automation-starter-guide.html">Download Free →</button>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div class="guide-tag">Free PDF</div>
+            <div class="guide-name">10 Workflows You Can Automate This Month</div>
+            <div class="guide-desc">A checklist of high-ROI automations you can put live right now, with the tools to do each one.</div>
+            <button class="download-btn" data-guide="10-workflows-to-automate" data-title="10 Workflows You Can Automate This Month" data-pdf="guides/10-workflows-to-automate.html">Download Free →</button>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            </div>
+            <div class="guide-tag">Free PDF</div>
+            <div class="guide-name">The AI Lead-Gen Playbook</div>
+            <div class="guide-desc">Fill your pipeline on autopilot with AI-powered outbound, qualification, and follow-up.</div>
+            <button class="download-btn" data-guide="ai-lead-gen-playbook" data-title="The AI Lead-Gen Playbook" data-pdf="guides/ai-lead-gen-playbook.html">Download Free →</button>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11H5a2 2 0 0 0-2 2v7h6zM15 7h-6v13h6zM21 4h-4a2 2 0 0 0-2 2v14h6z"/></svg>
+            </div>
+            <div class="guide-tag">Free PDF</div>
+            <div class="guide-name">AI for Customer Service</div>
+            <div class="guide-desc">Answer faster, never miss a lead, and free your team with AI-assisted support and WhatsApp flows.</div>
+            <button class="download-btn" data-guide="ai-for-customer-service" data-title="AI for Customer Service" data-pdf="guides/ai-for-customer-service.html">Download Free →</button>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9M13 17V5M8 17v-3"/></svg>
+            </div>
+            <div class="guide-tag">Free PDF</div>
+            <div class="guide-name">Measuring AI ROI</div>
+            <div class="guide-desc">The simple framework we use to prove the return on every automation we ship for clients.</div>
+            <button class="download-btn" data-guide="measuring-ai-roi" data-title="Measuring AI ROI" data-pdf="guides/measuring-ai-roi.html">Download Free →</button>
+          </div>
+
+          <div class="guide-card">
+            <div class="guide-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+            </div>
+            <div class="guide-tag">Free PDF</div>
+            <div class="guide-name">The AI Readiness Checklist</div>
+            <div class="guide-desc">A printable checklist to find out if your business is ready to automate, and what to fix first.</div>
+            <button class="download-btn" data-guide="ai-readiness-checklist" data-title="The AI Readiness Checklist" data-pdf="guides/ai-readiness-checklist.html">Download Free →</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="leftclick-section cta-section">
+      <div class="cta-glow"></div>
+      <div class="common-wrap">
+        <div class="cta-inner">
+          <h2 class="h2 cta-heading">Want it done for you?</h2>
+          <p class="lead-text cta-sub">Book a free 30-minute growth mapping call. We'll audit your funnel, find the bottlenecks, and show you exactly where AI moves the needle.</p>
+          <div class="cta-btn-wrap">
+            <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn">
+              <div class="btn-text-wrap">
+                <div class="btn-text">Book a free growth call</div>
+                <div class="btn-text-hover">Book a free growth call</div>
+              </div>
+              <div class="btn-icon-box">
+                <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon-hover">
+                <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <section class="leftclick-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn btn-light">
+                <div class="btn-text-wrap">
+                  <div class="btn-text">Let's talk</div>
+                  <div class="btn-text-hover">Let's talk</div>
+                </div>
+                <div class="btn-icon-box dark-bg">
+                  <img src="scraped/images/68a7178e15c36fdfc68f911d_Vector_20_1_.svg" alt="" class="btn-icon-hover">
+                  <img src="scraped/images/68a7178e15c36fdfc68f911d_Vector_20_1_.svg" alt="" class="btn-icon">
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class='footer-link' href='about.html'>About</a>
+              <a class='footer-link' href='services.html'>Services</a>
+              <a class='footer-link' href='resources.html'>Resources</a>
+              <a class='footer-link' href='index.html#case-studies'>Case Studies</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Resources</p>
+              <a class='footer-link' href='resources.html'>Free Guides</a>
+              <a class='footer-link' href='resources.html'>ROI Calculator</a>
+              <a class='footer-link' href='resources.html'>Readiness Scorecard</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Get started</p>
+              <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="footer-link">Book a Call</a>
+              <a class='footer-link' href='privacy.html'>Privacy Policy</a>
+              <a class='footer-link' href='terms.html'>Terms of Service</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo">
+              <img src="scraped/images/ai247-logo-light.png" alt="AI 247 Automation" class="full-width">
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class='footer-nav-link' href='privacy.html'>Privacy Policy</a>
+              <a class='footer-nav-link' href='terms.html'>Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right">
+            <div class="copyright-text">&copy; 2026 AI 247 Inc. All rights reserved.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAD CAPTURE MODAL -->
+  <div class="lead-overlay" id="leadOverlay" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+    <div class="lead-modal">
+      <button class="lead-close" id="leadClose" aria-label="Close">&times;</button>
+      <div class="lead-head" id="leadHead">
+        <div class="lead-eyebrow">Free download</div>
+        <div class="lead-title" id="leadTitle">Get the guide</div>
+        <p class="lead-note">Tell us where to send it. The PDF downloads instantly and we'll WhatsApp you a copy too.</p>
+      </div>
+      <form class="lead-form" id="leadForm">
+        <div class="lead-field">
+          <label for="leadName">Your name</label>
+          <input type="text" id="leadName" name="name" required autocomplete="name" placeholder="e.g. Hamad">
+        </div>
+        <div class="lead-field">
+          <label for="leadBusiness">Business name</label>
+          <input type="text" id="leadBusiness" name="business" required autocomplete="organization" placeholder="e.g. Bluebird Bakery">
+        </div>
+        <div class="lead-field">
+          <label for="leadPhone">WhatsApp number</label>
+          <div class="lead-wa">
+            <input type="text" class="lead-cc" id="leadCC" name="cc" value="+966" aria-label="Country code">
+            <input type="tel" id="leadPhone" name="phone" required autocomplete="tel" placeholder="5X XXX XXXX" style="flex:1">
+          </div>
+        </div>
+        <button type="submit" class="lead-submit" id="leadSubmit">Send me the guide →</button>
+        <p class="lead-privacy">By submitting you agree to be contacted on WhatsApp. We never share your details.</p>
+      </form>
+      <div class="lead-success" id="leadSuccess">
+        <div class="lead-success-icon">✓</div>
+        <div class="lead-title">Your guide is on its way!</div>
+        <p class="lead-note">The download just started. We've also sent it to your WhatsApp, check your chats in a moment.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark mode toggle -->
+  <a href="https://wa.me/966536000087" target="_blank" rel="noopener" class="wa-float" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.9 1.13-.17.19-.33.21-.61.07-1.66-.83-2.75-1.48-3.84-3.36-.29-.5.29-.46.83-1.53.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.41 1.27 4.85L2 22l5.27-1.38a9.9 9.9 0 0 0 4.73 1.2h.01c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.9 9.9 0 0 0 12 2.04zm0 18.18h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.25-8.25 2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.42 5.84c0 4.55-3.7 8.23-8.25 8.23z"/></svg></a><button class="dark-mode-toggle" id="darkToggle" aria-label="Toggle dark mode">
+    <svg class="dark-mode-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    <svg class="dark-mode-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('darkToggle');
+      const body = document.body;
+      const saved = localStorage.getItem('darkMode');
+      if (saved === 'true' || (saved === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        body.classList.add('dark-mode');
+      }
+      toggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+      });
+    })();
+  </script>
+
+  <script>
+    // ── Lead capture + download flow ──
+    const LEAD_ENDPOINT = '/api/lead'; // serverless function (see backend/)
+    const AR_GUIDES = { 'ai-automation-starter-guide': 'guides/ai-automation-starter-guide-ar.html' };
+    function guideUrl(g, fallback) { return (window.ai247Lang === 'ar' && AR_GUIDES[g]) ? AR_GUIDES[g] : fallback; }
+    const overlay = document.getElementById('leadOverlay');
+    const form = document.getElementById('leadForm');
+    const head = document.getElementById('leadHead');
+    const success = document.getElementById('leadSuccess');
+    const titleEl = document.getElementById('leadTitle');
+    const submitBtn = document.getElementById('leadSubmit');
+    let current = { guide: '', title: '', pdf: '' };
+
+    function openModal(data) {
+      current = data;
+      titleEl.textContent = 'Get: ' + data.title;
+      form.classList.remove('hide');
+      head.classList.remove('hide');
+      success.classList.remove('show');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send me the guide →';
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => document.getElementById('leadName').focus(), 250);
+    }
+    function closeModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+      form.reset();
+      document.getElementById('leadCC').value = '+966';
+    }
+
+    function getSavedLead() {
+      try { return JSON.parse(localStorage.getItem('ai247_lead')); } catch { return null; }
+    }
+    async function sendLead(payload) {
+      try {
+        await fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('Lead endpoint unreachable.', err);
+      }
+    }
+
+    document.querySelectorAll('.download-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const data = { guide: btn.dataset.guide, title: btn.dataset.title, pdf: btn.dataset.pdf };
+        const saved = getSavedLead();
+        if (saved && saved.whatsapp) {
+          // Returning visitor — we already have their details, skip the form.
+          sendLead({ ...saved, guide: data.guide, guideTitle: data.title, pdfUrl: data.pdf, page: location.href, returning: true });
+          triggerDownload(guideUrl(data.guide, data.pdf));
+        } else {
+          openModal(data);
+        }
+      });
+    });
+    document.getElementById('leadClose').addEventListener('click', closeModal);
+    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    function triggerDownload(pdf) {
+      window.open(pdf, '_blank');
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      const payload = {
+        name: document.getElementById('leadName').value.trim(),
+        business: document.getElementById('leadBusiness').value.trim(),
+        whatsapp: document.getElementById('leadCC').value.trim() + ' ' + document.getElementById('leadPhone').value.trim(),
+        guide: current.guide,
+        guideTitle: current.title,
+        pdfUrl: current.pdf,
+        page: location.href
+      };
+      // Remember the visitor so we never ask again on this device.
+      localStorage.setItem('ai247_lead', JSON.stringify({
+        name: payload.name, business: payload.business, whatsapp: payload.whatsapp
+      }));
+      // Open the guide right away (within the click gesture), then log the lead.
+      triggerDownload(guideUrl(current.guide, current.pdf));
+      sendLead(payload);
+      form.classList.add('hide');
+      head.classList.add('hide');
+      success.classList.add('show');
+    });
+  </script>
+  <script src="interactions.js"></script>
+  <script src="i18n.js"></script>
+
+</body>
+</html>

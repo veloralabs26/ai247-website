@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI ROI Calculator — AI 247</title>
+  <meta name="description" content="Estimate how much time and money AI automation could save your business each month. Free interactive calculator from AI 247.">
+  <meta property="og:title" content="AI ROI Calculator — AI 247">
+  <meta property="og:description" content="See your potential AI automation savings in 30 seconds.">
+  <meta property="og:url" content="https://ai247.sa/roi-calculator.html">
+  <meta property="og:site_name" content="AI 247">
+  <link rel="canonical" href="https://ai247.sa/roi-calculator.html">
+  <style>
+    @font-face { font-family:'Dmsans'; src:url('fonts/DMSans-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'Dmsans'; src:url('fonts/DMSans-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+    .tool-hero { justify-content:center; padding-top:6em; padding-bottom:2em; }
+    .dark-mode .tool-hero { background:radial-gradient(ellipse 80% 60% at 50% 40%, #1a1a2e 0%, #111113 70%); }
+    .tool-hero-inner { display:flex; flex-direction:column; align-items:center; text-align:center; gap:1em; max-width:46em; margin:0 auto; }
+    .tool-hero-sub { font-size:1.05em; line-height:155%; color:rgba(0,0,0,.55); max-width:30em; }
+    .dark-mode .tool-hero-sub { color:hsla(0,0%,100%,.5); }
+
+    .calc-section { padding-bottom:6em; }
+    .calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5em; margin-top:2em; width:100%; align-items:start; }
+    .calc-inputs { background:#fff; border:1px solid rgba(0,0,0,.05); border-radius:1em; padding:2em; }
+    .dark-mode .calc-inputs { background:hsla(0,0%,100%,.06); border-color:hsla(0,0%,100%,.06); }
+    .calc-field { margin-bottom:1.5em; }
+    .calc-field:last-child { margin-bottom:0; }
+    .calc-field label { display:block; font-size:.92em; font-weight:500; margin-bottom:.15em; color:var(--black); }
+    .dark-mode .calc-field label { color:#f0f0f2; }
+    .calc-field .hint { font-size:.78em; color:rgba(0,0,0,.45); margin-bottom:.6em; }
+    .dark-mode .calc-field .hint { color:hsla(0,0%,100%,.4); }
+    .calc-input-row { display:flex; align-items:center; gap:.6em; }
+    .calc-input-row .unit { font-size:.85em; color:rgba(0,0,0,.45); white-space:nowrap; }
+    .dark-mode .calc-input-row .unit { color:hsla(0,0%,100%,.4); }
+    .calc-field input[type=number] {
+      width:100%; padding:.7em .9em; border:1px solid rgba(0,0,0,.14); border-radius:.6em;
+      font-family:inherit; font-size:1.05em; font-weight:500; background:#fafafa; color:#111;
+    }
+    .calc-field input[type=number]:focus { outline:none; border-color:#111; background:#fff; }
+    .dark-mode .calc-field input[type=number] { background:hsla(0,0%,100%,.06); border-color:hsla(0,0%,100%,.14); color:#f0f0f2; }
+    .calc-field input[type=range] { width:100%; accent-color:#111; }
+    .dark-mode .calc-field input[type=range] { accent-color:#f0f0f2; }
+    .range-val { font-size:.92em; font-weight:500; }
+
+    .calc-results {
+      background:#111113; border-radius:1em; padding:2em; color:#f0f0f2; position:relative; overflow:hidden;
+      position:sticky; top:1.5em;
+    }
+    .calc-results:before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 70% 0%, #1a1a2e 0%, transparent 70%); pointer-events:none; }
+    .calc-results-inner { position:relative; z-index:1; }
+    .result-eyebrow { font-size:.72em; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:hsla(0,0%,100%,.45); }
+    .result-big { font-size:3em; font-weight:500; letter-spacing:-1.5px; line-height:1.05; margin:.15em 0 .1em; }
+    .result-big-label { font-size:.95em; color:hsla(0,0%,100%,.55); margin-bottom:1.5em; }
+    .result-rows { display:flex; flex-direction:column; gap:1em; border-top:1px solid hsla(0,0%,100%,.12); padding-top:1.5em; }
+    .result-row { display:flex; justify-content:space-between; align-items:baseline; gap:1em; }
+    .result-row .lbl { font-size:.95em; color:hsla(0,0%,100%,.6); }
+    .result-row .val { font-size:1.25em; font-weight:500; letter-spacing:-.5px; }
+    .result-note { font-size:.78em; color:hsla(0,0%,100%,.4); margin-top:1.5em; line-height:1.5; }
+    .calc-cta { margin-top:1.75em; }
+    .calc-results .btn { background:#f0f0f2; color:#111113; width:100%; justify-content:space-between; }
+    .calc-results .btn-icon-box { background:#111113; }
+    .calc-results .btn-icon-box .btn-icon, .calc-results .btn-icon-box .btn-icon-hover { filter:invert(1); }
+
+    @media screen and (max-width:991px){
+      .tool-hero { padding-top:96px; padding-bottom:24px; }
+      .tool-hero-inner .h1 { font-size:34px; letter-spacing:-1px; }
+      .tool-hero-sub { font-size:17px; }
+      .calc-grid { grid-template-columns:1fr; gap:16px; }
+      .calc-results { position:static; }
+      .result-big { font-size:40px; }
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preload" as="font" href="fonts/DMSans-Regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/DMSans-Medium.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="leftclick-body">
+
+  <div class="leftclick-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo">
+          <img fetchpriority="low" src="scraped/images/ai247-logo-dark.png" alt="AI 247 Automation" class="full-width">
+        </a>
+        <nav class="nav-wrap">
+          <a class='nav-link' href='services.html'>Services</a>
+          <a class='nav-link' href='about.html'>About</a>
+          <a class='nav-link' href='resources.html'>Resources</a>
+        </nav>
+        <div class="lang-switch"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="ar">عربي</button></div>
+        <div class="header-btn">
+          <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text">Let's talk</div><div class="btn-text-hover">Let's talk</div></div>
+            <div class="btn-icon-box">
+              <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon-hover">
+              <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon">
+            </div>
+          </a>
+        </div>
+        <button class="menu-btn" aria-label="Menu"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <nav class="mobile-menu-nav">
+      <a class='mobile-menu-link' href='services.html'>Services</a>
+      <a class='mobile-menu-link' href='about.html'>About</a>
+      <a class='mobile-menu-link' href='resources.html'>Resources</a>
+      <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="mobile-menu-link">Let's talk</a>
+    </nav>
+  </div>
+
+  <main class="leftclick-section">
+    <section class="leftclick-section tool-hero">
+      <div class="common-wrap">
+        <div class="tool-hero-inner">
+          <div class="super-headline">AI ROI Calculator</div>
+          <h1 class="h1">What could AI save you?</h1>
+          <p class="tool-hero-sub">Move the numbers to match your business. Your estimated monthly and yearly savings update instantly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="leftclick-section calc-section">
+      <div class="common-wrap">
+        <div class="calc-grid">
+
+          <div class="calc-inputs">
+            <div class="calc-field">
+              <label for="hours">Hours per week spent on repetitive tasks</label>
+              <div class="hint">Across your team — admin, data entry, follow-ups, reports.</div>
+              <div class="calc-input-row"><input type="number" id="hours" min="0" value="25"><span class="unit">hrs / week</span></div>
+            </div>
+            <div class="calc-field">
+              <label for="rate">Average hourly cost of that time</label>
+              <div class="hint">Rough loaded cost of the people doing it.</div>
+              <div class="calc-input-row"><span class="unit">SAR</span><input type="number" id="rate" min="0" value="75"><span class="unit">/ hour</span></div>
+            </div>
+            <div class="calc-field">
+              <label for="leads">New leads / enquiries per month</label>
+              <div class="calc-input-row"><input type="number" id="leads" min="0" value="120"><span class="unit">/ month</span></div>
+            </div>
+            <div class="calc-field">
+              <label for="value">Average value of one customer</label>
+              <div class="calc-input-row"><span class="unit">SAR</span><input type="number" id="value" min="0" value="1500"></div>
+            </div>
+            <div class="calc-field">
+              <label for="lost">Leads lost to slow or missed follow-up</label>
+              <div class="hint">Be honest — most businesses sit between 15–35%.</div>
+              <input type="range" id="lost" min="0" max="50" value="25">
+              <div class="range-val"><span id="lostVal">25</span>% of leads</div>
+            </div>
+          </div>
+
+          <div class="calc-results">
+            <div class="calc-results-inner">
+              <div class="result-eyebrow">Estimated value unlocked</div>
+              <div class="result-big" id="annual">SAR 0</div>
+              <div class="result-big-label">per year</div>
+              <div class="result-rows">
+                <div class="result-row"><span class="lbl">Time reclaimed</span><span class="val"><span id="hrsSaved">0</span> hrs/mo</span></div>
+                <div class="result-row"><span class="lbl">Labour saved</span><span class="val" id="labor">SAR 0</span></div>
+                <div class="result-row"><span class="lbl">Recovered revenue</span><span class="val" id="revenue">SAR 0</span></div>
+                <div class="result-row" style="border-top:1px solid hsla(0,0%,100%,.12); padding-top:1em;"><span class="lbl">Total / month</span><span class="val" id="monthly">SAR 0</span></div>
+              </div>
+              <p class="result-note">Estimate only, based on automating ~65% of repetitive work and recovering half of lost leads at a 25% close rate. Your real numbers depend on your setup — we'll map them with you.</p>
+              <div class="calc-cta">
+                <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn">
+                  <div class="btn-text-wrap"><div class="btn-text">Get my plan to hit this</div><div class="btn-text-hover">Get my plan to hit this</div></div>
+                  <div class="btn-icon-box">
+                    <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon-hover">
+                    <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon">
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="leftclick-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-text-wrap">
+            <p class="footer-h6">Work with us</p>
+            <p class="lead-text">Start with a free, thirty minute growth mapping call.</p>
+            <div class="footer-btn">
+              <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn btn-light">
+                <div class="btn-text-wrap"><div class="btn-text">Let's talk</div><div class="btn-text-hover">Let's talk</div></div>
+                <div class="btn-icon-box dark-bg">
+                  <img src="scraped/images/68a7178e15c36fdfc68f911d_Vector_20_1_.svg" alt="" class="btn-icon-hover">
+                  <img src="scraped/images/68a7178e15c36fdfc68f911d_Vector_20_1_.svg" alt="" class="btn-icon">
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="footer-columns">
+            <div class="footer-col">
+              <p class="footer-col-heading">Company</p>
+              <a class='footer-link' href='about.html'>About</a>
+              <a class='footer-link' href='services.html'>Services</a>
+              <a class='footer-link' href='resources.html'>Resources</a>
+              <a class='footer-link' href='index.html#case-studies'>Case Studies</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Resources</p>
+              <a class='footer-link' href='resources.html'>Free Guides</a>
+              <a class='footer-link' href='roi-calculator.html'>ROI Calculator</a>
+              <a class='footer-link' href='readiness-quiz.html'>Readiness Scorecard</a>
+            </div>
+            <div class="footer-col">
+              <p class="footer-col-heading">Get started</p>
+              <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="footer-link">Book a Call</a>
+              <a class='footer-link' href='privacy.html'>Privacy Policy</a>
+              <a class='footer-link' href='terms.html'>Terms of Service</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo">
+              <img src="scraped/images/ai247-logo-light.png" alt="AI 247 Automation" class="full-width">
+            </a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class='footer-nav-link' href='privacy.html'>Privacy Policy</a>
+              <a class='footer-nav-link' href='terms.html'>Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right"><div class="copyright-text">&copy; 2026 AI 247 Inc. All rights reserved.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/966536000087" target="_blank" rel="noopener" class="wa-float" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.9 1.13-.17.19-.33.21-.61.07-1.66-.83-2.75-1.48-3.84-3.36-.29-.5.29-.46.83-1.53.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.41 1.27 4.85L2 22l5.27-1.38a9.9 9.9 0 0 0 4.73 1.2h.01c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.9 9.9 0 0 0 12 2.04zm0 18.18h-.01a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.55 3.7-8.25 8.25-8.25 2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.42 5.84c0 4.55-3.7 8.23-8.25 8.23z"/></svg></a><button class="dark-mode-toggle" id="darkToggle" aria-label="Toggle dark mode">
+    <svg class="dark-mode-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    <svg class="dark-mode-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <script>
+    (function(){ const t=document.getElementById('darkToggle'),b=document.body,s=localStorage.getItem('darkMode');
+      if(s==='true'||(s===null&&matchMedia('(prefers-color-scheme: dark)').matches))b.classList.add('dark-mode');
+      t.addEventListener('click',()=>{b.classList.toggle('dark-mode');localStorage.setItem('darkMode',b.classList.contains('dark-mode'));});})();
+  </script>
+  <script>
+    const AUTO = 0.65;      // share of repetitive work we can automate
+    const RECOVER = 0.5;    // share of lost leads we recover
+    const CLOSE = 0.25;     // close rate on recovered leads
+    const $ = id => document.getElementById(id);
+    const sar = n => { const v = Math.round(n).toLocaleString('en-US'); return window.ai247Lang === 'ar' ? v + ' ر.س' : 'SAR ' + v; };
+
+    function calc(){
+      const hours = +$('hours').value || 0;
+      const rate  = +$('rate').value || 0;
+      const leads = +$('leads').value || 0;
+      const value = +$('value').value || 0;
+      const lost  = +$('lost').value || 0;
+      $('lostVal').textContent = lost;
+
+      const hrsSaved = hours * 4.33 * AUTO;
+      const labor = hrsSaved * rate;
+      const recoveredCustomers = leads * (lost/100) * RECOVER * CLOSE;
+      const revenue = recoveredCustomers * value;
+      const monthly = labor + revenue;
+
+      $('hrsSaved').textContent = Math.round(hrsSaved).toLocaleString('en-US');
+      $('labor').textContent = sar(labor);
+      $('revenue').textContent = sar(revenue);
+      $('monthly').textContent = sar(monthly);
+      $('annual').textContent = sar(monthly * 12);
+    }
+    ['hours','rate','leads','value','lost'].forEach(id => $(id).addEventListener('input', calc));
+    document.addEventListener('ai247:lang', calc);
+    calc();
+  </script>
+  <script src="interactions.js"></script>
+  <script src="i18n.js"></script>
+</body>
+</html>

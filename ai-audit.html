@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Instant AI Audit — AI 247</title>
+  <meta name="description" content="Get a free, instant AI automation audit for your business. Pick your industry and see the top automations that will save you time and win more customers.">
+  <meta property="og:title" content="Free Instant AI Audit — AI 247">
+  <meta property="og:description" content="See exactly where AI can grow your business — in 30 seconds, free.">
+  <meta property="og:url" content="https://ai247.sa/ai-audit.html">
+  <meta property="og:site_name" content="AI 247">
+  <link rel="canonical" href="https://ai247.sa/ai-audit.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family:'Dmsans'; src:url('fonts/DMSans-Regular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'Dmsans'; src:url('fonts/DMSans-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+    body.ar, body.ar * { font-family:'Cairo', 'Segoe UI', Tahoma, sans-serif; }
+    body.ar { line-height:1.75; }
+    body.ar .h1, body.ar .h2, body.ar .step-q, body.ar .result-headline, body.ar .rstat-num, body.ar .audit-hero-inner .h1 { letter-spacing:0 !important; }
+    body.ar .audit-hero-sub, body.ar .rec p { line-height:1.9; }
+    [dir=rtl] .audit-grid, [dir=rtl] .rec, [dir=rtl] .result-row, [dir=rtl] .mini, [dir=rtl] .step-q, [dir=rtl] .step-label { text-align:right; }
+    [dir=rtl] .rec { flex-direction:row-reverse; }
+    [dir=rtl] .result-cta { flex-direction:row-reverse; justify-content:flex-end; }
+    [dir=rtl] .result-stats { flex-direction:row-reverse; }
+    [dir=rtl] .lang-btn { left:auto; }
+
+    .lang-switch { display:flex; gap:.4em; }
+    .lang-btn { background:none; border:1px solid rgba(0,0,0,.18); color:var(--black); border-radius:2em; padding:.3em .9em; font-family:inherit; font-size:.78em; font-weight:500; cursor:pointer; transition:all .15s; }
+    .lang-btn.on { background:#111113; color:#fff; border-color:#111113; }
+    .dark-mode .lang-btn { color:#f0f0f2; border-color:hsla(0,0%,100%,.2); }
+    .dark-mode .lang-btn.on { background:#f0f0f2; color:#111113; border-color:#f0f0f2; }
+
+    .audit-hero { justify-content:center; padding-top:5.5em; padding-bottom:1.5em; }
+    .dark-mode .audit-hero { background:radial-gradient(ellipse 80% 60% at 50% 40%, #1a1a2e 0%, #111113 70%); }
+    .audit-hero-inner { display:flex; flex-direction:column; align-items:center; text-align:center; gap:1em; max-width:50em; margin:0 auto; }
+    .audit-hero-sub { font-size:1.05em; line-height:1.55; color:rgba(0,0,0,.55); max-width:32em; }
+    .dark-mode .audit-hero-sub { color:hsla(0,0%,100%,.5); }
+    .audit-pill { display:inline-flex; align-items:center; gap:.5em; background:rgba(0,0,0,.06); border-radius:2em; padding:.4em 1em; font-size:.78em; font-weight:500; letter-spacing:.04em; text-transform:uppercase; color:rgba(0,0,0,.55); }
+    .dark-mode .audit-pill { background:hsla(0,0%,100%,.1); color:hsla(0,0%,100%,.6); }
+    .audit-pill .dot { width:.5em; height:.5em; border-radius:50%; background:#25d366; }
+
+    .audit-section { padding-bottom:6em; }
+    .audit-card { max-width:50em; margin:2em auto 0; width:100%; background:#fff; border:1px solid rgba(0,0,0,.05); border-radius:1.25em; padding:2.5em; }
+    .dark-mode .audit-card { background:hsla(0,0%,100%,.06); border-color:hsla(0,0%,100%,.06); }
+    .step-label { font-size:.72em; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:rgba(0,0,0,.4); margin-bottom:.4em; }
+    .dark-mode .step-label { color:hsla(0,0%,100%,.4); }
+    .step-q { font-size:1.4em; font-weight:500; letter-spacing:-.02em; margin-bottom:1.25em; color:var(--black); }
+    .dark-mode .step-q { color:#f0f0f2; }
+
+    .ind-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.75em; }
+    .ind { display:flex; flex-direction:column; align-items:center; gap:.5em; padding:1.1em .5em; border:1px solid rgba(0,0,0,.1); border-radius:.9em; background:#fafafa; cursor:pointer; transition:all .15s; text-align:center; }
+    .ind:hover { border-color:#111; transform:translateY(-2px); }
+    .ind.sel { background:#111113; border-color:#111113; }
+    .ind.sel .ind-name, .ind.sel svg { color:#fff; stroke:#fff; }
+    .dark-mode .ind { background:hsla(0,0%,100%,.05); border-color:hsla(0,0%,100%,.12); }
+    .dark-mode .ind.sel { background:#f0f0f2; border-color:#f0f0f2; }
+    .dark-mode .ind.sel .ind-name, .dark-mode .ind.sel svg { color:#111113; stroke:#111113; }
+    .ind svg { width:1.6em; height:1.6em; stroke:#111113; fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+    .dark-mode .ind svg { stroke:#f0f0f2; }
+    .ind-name { font-size:.85em; font-weight:500; color:var(--black); line-height:1.2; }
+    .dark-mode .ind-name { color:#f0f0f2; }
+
+    .mini { margin-top:1.75em; }
+    .mini label { display:block; font-size:.92em; font-weight:500; margin-bottom:.5em; color:var(--black); }
+    .dark-mode .mini label { color:#f0f0f2; }
+    .chips { display:flex; gap:.5em; flex-wrap:wrap; }
+    .chip { padding:.55em 1em; border:1px solid rgba(0,0,0,.14); border-radius:2em; background:#fafafa; font-family:inherit; font-size:.9em; cursor:pointer; transition:all .15s; color:#111; }
+    .chip:hover { border-color:#111; }
+    .chip.sel { background:#111113; color:#fff; border-color:#111113; }
+    .dark-mode .chip { background:hsla(0,0%,100%,.05); border-color:hsla(0,0%,100%,.14); color:#f0f0f2; }
+    .dark-mode .chip.sel { background:#f0f0f2; color:#111113; }
+
+    .audit-go { margin-top:2em; text-align:center; }
+    .go-btn { background:#111113; color:#fff; border:none; border-radius:2em; padding:1em 2.2em; font-family:inherit; font-size:1.1em; font-weight:500; cursor:pointer; transition:opacity .2s; }
+    .go-btn:hover { opacity:.88; }
+    .go-btn:disabled { opacity:.4; cursor:default; }
+    .dark-mode .go-btn { background:#f0f0f2; color:#111113; }
+
+    /* loading */
+    .audit-loading { display:none; text-align:center; padding:3em 0; }
+    .audit-loading.show { display:block; }
+    .spinner { width:3em; height:3em; border:3px solid rgba(0,0,0,.1); border-top-color:#111; border-radius:50%; margin:0 auto 1.25em; animation:spin .8s linear infinite; }
+    .dark-mode .spinner { border-color:hsla(0,0%,100%,.12); border-top-color:#f0f0f2; }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    .loading-text { font-size:1.05em; color:rgba(0,0,0,.55); min-height:1.4em; }
+    .dark-mode .loading-text { color:hsla(0,0%,100%,.55); }
+
+    /* results */
+    .audit-result { display:none; max-width:50em; margin:2em auto 0; width:100%; }
+    .audit-result.show { display:block; animation:fadeUp .5s ease; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+    .result-top { background:#111113; border-radius:1.25em 1.25em 0 0; padding:2.25em 2.5em; color:#f0f0f2; position:relative; overflow:hidden; }
+    .result-top:before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 0%, #1a1a2e 0%, transparent 70%); }
+    .result-top-inner { position:relative; z-index:1; }
+    .result-for { font-size:.8em; color:hsla(0,0%,100%,.5); letter-spacing:.05em; }
+    .result-headline { font-size:1.9em; font-weight:500; letter-spacing:-.5px; line-height:1.15; margin:.3em 0 1em; }
+    .result-stats { display:flex; gap:2.5em; flex-wrap:wrap; }
+    .rstat-num { font-size:1.9em; font-weight:500; letter-spacing:-1px; }
+    .rstat-lbl { font-size:.78em; color:hsla(0,0%,100%,.5); }
+    .result-body { background:#fff; border:1px solid rgba(0,0,0,.06); border-top:none; border-radius:0 0 1.25em 1.25em; padding:2em 2.5em 2.5em; }
+    .dark-mode .result-body { background:hsla(0,0%,100%,.04); border-color:hsla(0,0%,100%,.06); }
+    .recs-title { font-size:.72em; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:rgba(0,0,0,.4); margin-bottom:1em; }
+    .dark-mode .recs-title { color:hsla(0,0%,100%,.4); }
+    .rec { display:flex; gap:1em; padding:1.1em 0; border-bottom:1px solid rgba(0,0,0,.07); }
+    .rec:last-child { border-bottom:none; }
+    .dark-mode .rec { border-color:hsla(0,0%,100%,.08); }
+    .rec-num { flex-shrink:0; width:2em; height:2em; border-radius:50%; background:#111113; color:#fff; display:flex; align-items:center; justify-content:center; font-size:.9em; font-weight:500; }
+    .dark-mode .rec-num { background:#f0f0f2; color:#111113; }
+    .rec h4 { font-size:1.1em; font-weight:500; margin-bottom:.2em; color:var(--black); }
+    .dark-mode .rec h4 { color:#f0f0f2; }
+    .rec p { font-size:.95em; color:rgba(0,0,0,.55); line-height:1.55; }
+    .dark-mode .rec p { color:hsla(0,0%,100%,.5); }
+    .rec-tag { display:inline-block; margin-top:.4em; font-size:.72em; font-weight:500; background:rgba(0,0,0,.06); border-radius:2em; padding:.25em .7em; color:rgba(0,0,0,.5); }
+    .dark-mode .rec-tag { background:hsla(0,0%,100%,.1); color:hsla(0,0%,100%,.6); }
+    .result-cta { margin-top:1.75em; display:flex; gap:.75em; flex-wrap:wrap; }
+    .rcta { display:inline-flex; align-items:center; gap:.5em; border-radius:2em; padding:.85em 1.5em; font-size:1em; font-weight:500; text-decoration:none; cursor:pointer; border:none; font-family:inherit; }
+    .rcta.primary { background:#111113; color:#fff; }
+    .dark-mode .rcta.primary { background:#f0f0f2; color:#111113; }
+    .rcta.wa { background:#25d366; color:#fff; }
+    .rcta.wa svg { width:1.2em; height:1.2em; fill:#fff; }
+    .result-restart { display:inline-block; margin-top:1.25em; font-size:.85em; color:rgba(0,0,0,.45); text-decoration:underline; cursor:pointer; background:none; border:none; font-family:inherit; }
+    .dark-mode .result-restart { color:hsla(0,0%,100%,.45); }
+
+    @media screen and (max-width:991px){
+      .audit-hero { padding-top:90px; }
+      .audit-hero-inner .h1 { font-size:32px; letter-spacing:-1px; }
+      .audit-card, .result-top, .result-body { padding:1.5em; }
+      .ind-grid { grid-template-columns:repeat(2,1fr); }
+      .result-headline { font-size:24px; }
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preload" as="font" href="fonts/DMSans-Regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="fonts/DMSans-Medium.woff2" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="leftclick-body">
+
+  <div class="leftclick-section header-wrap">
+    <div class="common-wrap">
+      <div class="header-inner">
+        <a href="index.html" class="main-logo">
+          <img fetchpriority="low" src="scraped/images/ai247-logo-dark.png" alt="AI 247 Automation" class="full-width">
+        </a>
+        <nav class="nav-wrap">
+          <a class='nav-link' href='services.html' data-i18n="nav_services">Services</a>
+          <a class='nav-link' href='about.html' data-i18n="nav_about">About</a>
+          <a class='nav-link' href='resources.html' data-i18n="nav_resources">Resources</a>
+        </nav>
+        <div class="header-btn" style="gap:.6em;align-items:center;display:flex;">
+          <div class="lang-switch">
+            <button class="lang-btn" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ar">عربي</button>
+          </div>
+          <a href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" class="btn">
+            <div class="btn-text-wrap"><div class="btn-text" data-i18n="cta_talk">Let's talk</div><div class="btn-text-hover" data-i18n="cta_talk">Let's talk</div></div>
+            <div class="btn-icon-box">
+              <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon-hover">
+              <img src="scraped/images/68a614961526d612ba759e26_Container.svg" alt="" class="btn-icon">
+            </div>
+          </a>
+        </div>
+        <button class="menu-btn" aria-label="Menu"><span class="menu-bar"></span><span class="menu-bar"></span><span class="menu-bar"></span></button>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <nav class="mobile-menu-nav">
+      <a class='mobile-menu-link' href='services.html' data-i18n="nav_services">Services</a>
+      <a class='mobile-menu-link' href='about.html' data-i18n="nav_about">About</a>
+      <a class='mobile-menu-link' href='resources.html' data-i18n="nav_resources">Resources</a>
+      <div class="lang-switch" style="justify-content:center;">
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ar">عربي</button>
+      </div>
+    </nav>
+  </div>
+
+  <main class="leftclick-section">
+    <section class="leftclick-section audit-hero">
+      <div class="common-wrap">
+        <div class="audit-hero-inner">
+          <div class="audit-pill"><span class="dot"></span><span data-i18n="hero_pill">Free · 30 seconds · no signup</span></div>
+          <h1 class="h1" data-i18n="hero_title">See exactly where AI can grow your business.</h1>
+          <p class="audit-hero-sub" data-i18n="hero_sub">Pick your industry, answer two quick questions, and get an instant audit of the automations that will save you the most time and win you more customers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="leftclick-section audit-section">
+      <div class="common-wrap">
+
+        <div class="audit-card" id="auditForm">
+          <div class="step-label" data-i18n="step1_label">Step 1</div>
+          <div class="step-q" data-i18n="step1_q">What kind of business do you run?</div>
+          <div class="ind-grid" id="indGrid"></div>
+
+          <div class="mini">
+            <label data-i18n="q_time">What eats the most time right now?</label>
+            <div class="chips" id="timeChips"></div>
+          </div>
+          <div class="mini">
+            <label data-i18n="q_leads">Roughly how many new customers/enquiries a month?</label>
+            <div class="chips" id="leadChips"></div>
+          </div>
+
+          <div class="audit-go">
+            <button class="go-btn" id="goBtn" disabled data-i18n="go">Generate my free AI audit →</button>
+          </div>
+        </div>
+
+        <div class="audit-loading" id="loading">
+          <div class="spinner"></div>
+          <div class="loading-text" id="loadingText"></div>
+        </div>
+
+        <div class="audit-result" id="result">
+          <div class="result-top">
+            <div class="result-top-inner">
+              <div class="result-for" id="resultFor"></div>
+              <div class="result-headline" id="resultHeadline"></div>
+              <div class="result-stats">
+                <div><div class="rstat-num" id="statHours">0</div><div class="rstat-lbl" data-i18n="stat_hours">hours saved / month</div></div>
+                <div><div class="rstat-num" id="statValue">SAR 0</div><div class="rstat-lbl" data-i18n="stat_value">potential value / month</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="result-body">
+            <div class="recs-title" data-i18n="recs_title">Your top 3 automations</div>
+            <div id="recs"></div>
+            <div class="result-cta">
+              <a class="rcta primary" href="https://cal.com/team/ai247automation-team/20min" target="_blank" rel="noopener" data-i18n="r_book">Book my free build call</a>
+              <a class="rcta wa" id="waBtn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.9 1.13-.17.19-.33.21-.61.07-1.66-.83-2.75-1.48-3.84-3.36-.29-.5.29-.46.83-1.53.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z"/></svg>
+                <span data-i18n="r_wa">Send my audit to WhatsApp</span>
+              </a>
+            </div>
+            <button class="result-restart" id="restart" data-i18n="r_restart">Start over</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <section class="leftclick-section footer-section">
+    <div class="common-wrap">
+      <div class="footer-inner">
+        <div class="footer-bottom" style="border:none;margin:0;">
+          <div class="footer-bottom-left">
+            <a href="index.html" class="footer-logo"><img src="scraped/images/ai247-logo-light.png" alt="AI 247 Automation" class="full-width"></a>
+          </div>
+          <div class="footer-bottom-center">
+            <div class="footer-bottom-link-wrap">
+              <a class='footer-nav-link' href='resources.html' data-i18n="nav_resources">Resources</a>
+              <a class='footer-nav-link' href='privacy.html' data-i18n="f_privacy">Privacy Policy</a>
+              <a class='footer-nav-link' href='terms.html' data-i18n="f_terms">Terms of Service</a>
+            </div>
+          </div>
+          <div class="footer-bottom-right"><div class="copyright-text">&copy; 2026 AI 247 Inc.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/966536000087" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.15-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.9 1.13-.17.19-.33.21-.61.07-1.66-.83-2.75-1.48-3.84-3.36-.29-.5.29-.46.83-1.53.09-.19.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.11-.23-.55-.46-.48-.64-.49h-.55c-.19 0-.5.07-.76.35-.26.28-1 .98-1 2.38s1.02 2.76 1.17 2.95c.14.19 2.01 3.07 4.87 4.31.68.29 1.21.47 1.62.6.68.22 1.3.19 1.79.11.55-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33zM12 2.04c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.41 1.27 4.85L2 22l5.27-1.38a9.9 9.9 0 0 0 4.73 1.2h.01c5.5 0 9.96-4.46 9.96-9.96 0-2.66-1.04-5.16-2.92-7.04A9.9 9.9 0 0 0 12 2.04z"/></svg></a>
+  <button class="dark-mode-toggle" id="darkToggle" aria-label="Toggle dark mode">
+    <svg class="dark-mode-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    <svg class="dark-mode-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <script>
+    (function(){ const t=document.getElementById('darkToggle'),b=document.body,s=localStorage.getItem('darkMode');
+      if(s==='true'||(s===null&&matchMedia('(prefers-color-scheme: dark)').matches))b.classList.add('dark-mode');
+      t.addEventListener('click',()=>{b.classList.toggle('dark-mode');localStorage.setItem('darkMode',b.classList.contains('dark-mode'));});})();
+  </script>
+  <script>
+  // ─────────── Bilingual dictionary ───────────
+  const I18N = {
+    en: {
+      nav_services:"Services", nav_about:"About", nav_resources:"Resources", cta_talk:"Let's talk",
+      hero_pill:"Free · 30 seconds · no signup",
+      hero_title:"See exactly where AI can grow your business.",
+      hero_sub:"Pick your industry, answer two quick questions, and get an instant audit of the automations that will save you the most time and win you more customers.",
+      step1_label:"Step 1", step1_q:"What kind of business do you run?",
+      q_time:"What eats the most time right now?",
+      q_leads:"Roughly how many new customers/enquiries a month?",
+      go:"Generate my free AI audit →",
+      stat_hours:"hours saved / month", stat_value:"potential value / month",
+      recs_title:"Your top 3 automations",
+      r_book:"Book my free build call", r_wa:"Send my audit to WhatsApp", r_restart:"Start over",
+      f_privacy:"Privacy Policy", f_terms:"Terms of Service",
+      loading:["Reading your answers…","Scanning automations for your industry…","Estimating your time & revenue impact…","Building your audit…"],
+      resultFor:"Audit for", headline:n=>`Here's where AI 247 can save your ${n} time and win you more customers.`,
+      times:["Replying to customers","Booking & scheduling","Following up on leads","Admin & paperwork","Marketing & posting"],
+      leadOpts:["Under 50","50–150","150–500","500+"]
+    },
+    ar: {
+      nav_services:"خدماتنا", nav_about:"من نحن", nav_resources:"الموارد", cta_talk:"تواصل معنا",
+      hero_pill:"مجاني · ٣٠ ثانية · بدون تسجيل",
+      hero_title:"اكتشف أين يمكن للذكاء الاصطناعي أن ينمّي أعمالك.",
+      hero_sub:"اختر مجال عملك، أجب عن سؤالين سريعين، واحصل فوراً على تقييم لأهم الأتمتة التي ستوفّر وقتك وتجلب لك المزيد من العملاء.",
+      step1_label:"الخطوة ١", step1_q:"ما نوع نشاطك التجاري؟",
+      q_time:"ما الذي يستهلك معظم وقتك حالياً؟",
+      q_leads:"كم عدد العملاء/الطلبات الجديدة شهرياً تقريباً؟",
+      go:"أنشئ تقييمي المجاني ←",
+      stat_hours:"ساعة موفّرة / شهرياً", stat_value:"قيمة محتملة / شهرياً",
+      recs_title:"أفضل ٣ حلول أتمتة لك",
+      r_book:"احجز مكالمة مجانية", r_wa:"أرسل التقييم على واتساب", r_restart:"ابدأ من جديد",
+      f_privacy:"سياسة الخصوصية", f_terms:"شروط الخدمة",
+      loading:["نقرأ إجاباتك…","نبحث عن الأتمتة المناسبة لمجالك…","نقدّر أثرها على وقتك وإيراداتك…","نجهّز تقييمك…"],
+      resultFor:"تقييم لـ", headline:n=>`إليك أين يمكن لـ AI 247 أن توفّر وقت ${n} وتجلب لك المزيد من العملاء.`,
+      times:["الرد على العملاء","الحجز والمواعيد","متابعة العملاء المحتملين","الأعمال الإدارية","التسويق والنشر"],
+      leadOpts:["أقل من ٥٠","٥٠–١٥٠","١٥٠–٥٠٠","٥٠٠+"]
+    }
+  };
+
+  // ─────────── Industries + tailored recommendations ───────────
+  const ICON = {
+    food:'<path d="M3 2v7c0 1.1.9 2 2 2h0c1.1 0 2-.9 2-2V2M5 11v11M11 2v20M11 8c0-3 2-6 5-6v20"/>',
+    clinic:'<path d="M12 2v20M2 12h20"/><rect x="4" y="4" width="16" height="16" rx="3"/>',
+    retail:'<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/>',
+    realestate:'<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',
+    salon:'<circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/>',
+    pro:'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+    auto:'<path d="M5 17H3v-5l2-5h14l2 5v5h-2M5 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0M5 17h10"/>',
+    other:'<circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/>'
+  };
+  const INDUSTRIES = [
+    { id:'food', en:'Restaurant & Café', ar:'مطعم ومقهى',
+      recs:[
+        {en:['WhatsApp ordering & reservations','Take orders and bookings automatically on WhatsApp, 24/7, with instant confirmations.'], ar:['الطلب والحجز عبر واتساب','استقبل الطلبات والحجوزات تلقائياً على واتساب على مدار الساعة مع تأكيد فوري.'], tag_en:'More orders', tag_ar:'طلبات أكثر'},
+        {en:['Auto review requests','Ask happy diners for a Google review at the perfect moment, automatically.'], ar:['طلب التقييمات تلقائياً','اطلب من عملائك تقييماً على خرائط جوجل في الوقت المناسب تلقائياً.'], tag_en:'Reputation', tag_ar:'سمعة أفضل'},
+        {en:['Win-back campaigns','Automatically bring back customers who haven\'t ordered in a while with a timely offer.'], ar:['حملات استرجاع العملاء','أعد العملاء الذين توقفوا عن الطلب بعرض مناسب وتلقائي.'], tag_en:'Repeat revenue', tag_ar:'إيراد متكرر'}
+      ]},
+    { id:'clinic', en:'Clinic & Dental', ar:'عيادة وأسنان',
+      recs:[
+        {en:['Appointment booking & reminders','Patients book themselves and get automatic reminders, slashing no-shows.'], ar:['حجز المواعيد والتذكير','يحجز المرضى بأنفسهم مع تذكير تلقائي يقلّل الغياب.'], tag_en:'Fewer no-shows', tag_ar:'غياب أقل'},
+        {en:['Instant enquiry replies','Answer common patient questions on WhatsApp instantly, day or night.'], ar:['رد فوري على الاستفسارات','أجب على أسئلة المرضى الشائعة على واتساب فوراً ليلاً ونهاراً.'], tag_en:'Faster intake', tag_ar:'استقبال أسرع'},
+        {en:['Recall & follow-up','Automatically remind patients when they\'re due for a check-up or follow-up.'], ar:['التذكير بالمتابعة','ذكّر المرضى تلقائياً عند موعد الفحص أو المتابعة.'], tag_en:'More bookings', tag_ar:'حجوزات أكثر'}
+      ]},
+    { id:'retail', en:'Retail & E-commerce', ar:'تجزئة ومتاجر',
+      recs:[
+        {en:['Abandoned-cart recovery','Automatically nudge shoppers who didn\'t check out, recovering lost sales.'], ar:['استرجاع السلات المتروكة','ذكّر العملاء الذين لم يكملوا الشراء تلقائياً لاسترجاع المبيعات.'], tag_en:'Recovered revenue', tag_ar:'إيراد مسترجع'},
+        {en:['AI customer support','Answer product, sizing, and order questions instantly on WhatsApp & web.'], ar:['دعم عملاء بالذكاء الاصطناعي','أجب فوراً عن أسئلة المنتجات والطلبات على واتساب والموقع.'], tag_en:'24/7 support', tag_ar:'دعم دائم'},
+        {en:['Order updates on autopilot','Keep customers informed from purchase to delivery without lifting a finger.'], ar:['تحديثات الطلب تلقائياً','أبقِ العملاء على اطلاع من الشراء حتى التوصيل دون أي جهد.'], tag_en:'Happier buyers', tag_ar:'عملاء أسعد'}
+      ]},
+    { id:'realestate', en:'Real Estate', ar:'عقارات',
+      recs:[
+        {en:['Instant lead response','Reply to every property enquiry in seconds and qualify buyers automatically.'], ar:['رد فوري على العملاء','رد على كل استفسار عقاري خلال ثوانٍ وأهّل المشترين تلقائياً.'], tag_en:'Speed to lead', tag_ar:'سرعة الرد'},
+        {en:['Viewing scheduler','Let buyers book viewings themselves with automatic reminders.'], ar:['جدولة المعاينات','دع المشترين يحجزون المعاينات بأنفسهم مع تذكير تلقائي.'], tag_en:'Fewer no-shows', tag_ar:'غياب أقل'},
+        {en:['Listing follow-up','Automatically nurture leads until they\'re ready to buy or rent.'], ar:['متابعة العملاء','تابع العملاء تلقائياً حتى يصبحوا جاهزين للشراء أو الإيجار.'], tag_en:'More closings', tag_ar:'صفقات أكثر'}
+      ]},
+    { id:'salon', en:'Salon & Beauty', ar:'صالون وتجميل',
+      recs:[
+        {en:['Self-service booking','Clients book and rebook on WhatsApp with automatic reminders.'], ar:['حجز ذاتي','يحجز العملاء ويعيدون الحجز على واتساب مع تذكير تلقائي.'], tag_en:'Full calendar', tag_ar:'مواعيد ممتلئة'},
+        {en:['No-show protection','Automatic reminders and confirmations keep your chairs full.'], ar:['تقليل الغياب','تذكيرات وتأكيدات تلقائية تبقي مواعيدك ممتلئة.'], tag_en:'Less lost time', tag_ar:'وقت أقل ضائع'},
+        {en:['Re-booking & offers','Bring clients back on schedule with timely, automated offers.'], ar:['إعادة الحجز والعروض','أعد العملاء في الوقت المناسب بعروض تلقائية.'], tag_en:'Repeat revenue', tag_ar:'إيراد متكرر'}
+      ]},
+    { id:'pro', en:'Professional Services', ar:'خدمات مهنية',
+      recs:[
+        {en:['Lead intake & qualification','Capture and score every enquiry automatically, so you only talk to serious clients.'], ar:['استقبال وتأهيل العملاء','استقبل وقيّم كل استفسار تلقائياً لتتحدث فقط مع العملاء الجادين.'], tag_en:'Better leads', tag_ar:'عملاء أفضل'},
+        {en:['Proposal & document automation','Generate quotes and proposals in seconds instead of hours.'], ar:['أتمتة العروض والمستندات','أنشئ عروض الأسعار في ثوانٍ بدلاً من ساعات.'], tag_en:'Hours saved', tag_ar:'ساعات موفّرة'},
+        {en:['Automated follow-up','Never let a lead go cold with smart, scheduled follow-ups.'], ar:['متابعة تلقائية','لا تدع أي عميل يبرد مع متابعات مجدولة وذكية.'], tag_en:'More wins', tag_ar:'صفقات أكثر'}
+      ]},
+    { id:'auto', en:'Automotive', ar:'سيارات وورش',
+      recs:[
+        {en:['Service booking & reminders','Customers book service slots online with automatic reminders.'], ar:['حجز الصيانة والتذكير','يحجز العملاء مواعيد الصيانة أونلاين مع تذكير تلقائي.'], tag_en:'Full bays', tag_ar:'مواعيد ممتلئة'},
+        {en:['Instant quote replies','Answer service and pricing questions on WhatsApp instantly.'], ar:['رد فوري بالأسعار','أجب عن أسئلة الصيانة والأسعار على واتساب فوراً.'], tag_en:'Faster sales', tag_ar:'مبيعات أسرع'},
+        {en:['Maintenance reminders','Automatically remind customers when their next service is due.'], ar:['تذكير الصيانة','ذكّر العملاء تلقائياً بموعد الصيانة القادمة.'], tag_en:'Repeat visits', tag_ar:'زيارات متكررة'}
+      ]},
+    { id:'other', en:'Something else', ar:'مجال آخر',
+      recs:[
+        {en:['Instant lead response','Reply to every enquiry in seconds, across WhatsApp, web, and social.'], ar:['رد فوري على العملاء','رد على كل استفسار خلال ثوانٍ عبر واتساب والموقع ووسائل التواصل.'], tag_en:'Speed to lead', tag_ar:'سرعة الرد'},
+        {en:['Follow-up on autopilot','Smart, scheduled follow-ups so no opportunity slips away.'], ar:['متابعة تلقائية','متابعات مجدولة وذكية حتى لا تفوتك أي فرصة.'], tag_en:'More conversions', tag_ar:'تحويلات أكثر'},
+        {en:['Admin & reporting automation','Cut hours of manual admin and get your numbers automatically.'], ar:['أتمتة الإدارة والتقارير','وفّر ساعات العمل الإداري واحصل على أرقامك تلقائياً.'], tag_en:'Hours saved', tag_ar:'ساعات موفّرة'}
+      ]}
+  ];
+
+  let lang = localStorage.getItem('ai247_lang') || 'en';
+  let sel = { ind:null, time:null, leads:null };
+
+  function t(k){ return I18N[lang][k]; }
+  function applyLang(){
+    const ar = lang === 'ar';
+    document.documentElement.lang = ar ? 'ar' : 'en';
+    document.documentElement.dir = ar ? 'rtl' : 'ltr';
+    document.body.classList.toggle('ar', ar);
+    document.querySelectorAll('[data-i18n]').forEach(el => { const v = t(el.dataset.i18n); if (v) el.textContent = v; });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+    localStorage.setItem('ai247_lang', lang);
+    renderIndustries(); renderChips();
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => { lang = b.dataset.lang; applyLang(); }));
+
+  function renderIndustries(){
+    const g = document.getElementById('indGrid'); g.innerHTML = '';
+    INDUSTRIES.forEach(ind => {
+      const d = document.createElement('div');
+      d.className = 'ind' + (sel.ind === ind.id ? ' sel' : '');
+      d.innerHTML = `<svg viewBox="0 0 24 24">${ICON[ind.id]}</svg><div class="ind-name">${lang==='ar'?ind.ar:ind.en}</div>`;
+      d.addEventListener('click', () => { sel.ind = ind.id; renderIndustries(); checkReady(); });
+      g.appendChild(d);
+    });
+  }
+  function renderChips(){
+    const tc = document.getElementById('timeChips'); tc.innerHTML = '';
+    t('times').forEach((label, i) => {
+      const c = document.createElement('button'); c.className='chip'+(sel.time===i?' sel':''); c.textContent=label;
+      c.addEventListener('click', ()=>{ sel.time=i; renderChips(); checkReady(); }); tc.appendChild(c);
+    });
+    const lc = document.getElementById('leadChips'); lc.innerHTML = '';
+    t('leadOpts').forEach((label, i) => {
+      const c = document.createElement('button'); c.className='chip'+(sel.leads===i?' sel':''); c.textContent=label;
+      c.addEventListener('click', ()=>{ sel.leads=i; renderChips(); checkReady(); }); lc.appendChild(c);
+    });
+  }
+  function checkReady(){ document.getElementById('goBtn').disabled = !(sel.ind!=null && sel.time!=null && sel.leads!=null); }
+
+  const LEAD_MID = [30, 100, 325, 700];
+  const VALUE = 1200;
+  function generate(){
+    const ind = INDUSTRIES.find(i => i.id === sel.ind);
+    const leads = LEAD_MID[sel.leads];
+    const hours = 18 + sel.time*6 + Math.min(sel.leads*8, 30);     // rough monthly hours saved
+    const value = Math.round((hours*70 + leads*0.12*VALUE) / 100) * 100;
+
+    document.getElementById('resultFor').textContent = t('resultFor') + ' · ' + (lang==='ar'?ind.ar:ind.en);
+    document.getElementById('resultHeadline').textContent = t('headline')(lang==='ar'?ind.ar:ind.en);
+    document.getElementById('statHours').textContent = hours;
+    document.getElementById('statValue').textContent = 'SAR ' + value.toLocaleString('en-US');
+
+    const recsEl = document.getElementById('recs'); recsEl.innerHTML = '';
+    ind.recs.forEach((r, i) => {
+      const txt = lang==='ar'?r.ar:r.en; const tag = lang==='ar'?r.tag_ar:r.tag_en;
+      const el = document.createElement('div'); el.className='rec';
+      el.innerHTML = `<div class="rec-num">${i+1}</div><div><h4>${txt[0]}</h4><p>${txt[1]}</p><span class="rec-tag">${tag}</span></div>`;
+      recsEl.appendChild(el);
+    });
+
+    const waMsg = encodeURIComponent(lang==='ar'
+      ? `مرحباً AI 247، أنهيت التقييم المجاني (${ind.ar}) وأرغب باستلام تقريري الكامل ومعرفة التفاصيل.`
+      : `Hi AI 247, I just finished the free AI audit (${ind.en}) and would like my full report and next steps.`);
+    document.getElementById('waBtn').href = `https://wa.me/966536000087?text=${waMsg}`;
+  }
+
+  document.getElementById('goBtn').addEventListener('click', () => {
+    document.getElementById('auditForm').style.display = 'none';
+    const load = document.getElementById('loading'); load.classList.add('show');
+    const steps = t('loading'); let i = 0;
+    const lt = document.getElementById('loadingText'); lt.textContent = steps[0];
+    const iv = setInterval(() => { i++; if (i < steps.length) lt.textContent = steps[i]; }, 700);
+    setTimeout(() => {
+      clearInterval(iv); load.classList.remove('show');
+      generate();
+      const r = document.getElementById('result'); r.classList.add('show');
+      r.scrollIntoView({ behavior:'smooth', block:'start' });
+    }, 2900);
+  });
+  document.getElementById('restart').addEventListener('click', () => {
+    sel = { ind:null, time:null, leads:null };
+    document.getElementById('result').classList.remove('show');
+    document.getElementById('auditForm').style.display = '';
+    renderIndustries(); renderChips(); checkReady();
+    window.scrollTo({ top:0, behavior:'smooth' });
+  });
+
+  applyLang();
+  </script>
+  <script>
+  (function(){
+    document.querySelectorAll('.wa-float').forEach(e => e.style.display = 'none');
+    var od = document.getElementById('darkToggle'); if (od) od.style.display = 'none';
+    document.querySelectorAll('.lang-switch').forEach(e => e.style.display = 'none');
+    var dock = document.createElement('div'); dock.className = 'ctrl-dock';
+    var curAr = () => document.body.classList.contains('ar');
+    var langBtn = document.createElement('button'); langBtn.className = 'ctrl-btn ctrl-lang'; langBtn.setAttribute('aria-label','Switch language');
+    var setLabel = () => { langBtn.textContent = curAr() ? 'EN' : 'ع'; };
+    langBtn.addEventListener('click', () => { var t = curAr() ? 'en' : 'ar'; var b = document.querySelector('.lang-btn[data-lang="'+t+'"]'); if (b) b.click(); setTimeout(setLabel, 0); });
+    var wa = document.createElement('a'); wa.className = 'ctrl-btn ctrl-wa'; wa.href = 'https://wa.me/966536000087'; wa.target = '_blank'; wa.rel = 'noopener'; wa.setAttribute('aria-label','WhatsApp');
+    wa.innerHTML = '<svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.7c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>';
+    var dk = document.createElement('button'); dk.className = 'ctrl-btn ctrl-dark'; dk.setAttribute('aria-label','Toggle dark mode');
+    dk.innerHTML = '<svg class="dark-mode-icon sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg><svg class="dark-mode-icon moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    dk.addEventListener('click', () => { document.body.classList.toggle('dark-mode'); localStorage.setItem('darkMode', document.body.classList.contains('dark-mode')); });
+    dock.appendChild(langBtn); dock.appendChild(wa); dock.appendChild(dk); document.body.appendChild(dock); setLabel();
+  })();
+  </script>
+  <script src="interactions.js"></script>
+</body>
+</html>
