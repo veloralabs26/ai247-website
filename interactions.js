@@ -21,6 +21,20 @@ if (menuBtn && mobileMenu) {
   });
 }
 
+// PDF guide downloads
+document.querySelectorAll('.download-btn[data-pdf]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pdf = btn.getAttribute('data-pdf');
+    const title = btn.getAttribute('data-title') || 'guide';
+    const a = document.createElement('a');
+    a.href = pdf;
+    a.download = title.replace(/[^a-z0-9]/gi, '-').toLowerCase() + '.pdf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+});
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
