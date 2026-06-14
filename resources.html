@@ -505,7 +505,7 @@
 
   <script>
     // ── Lead capture + download flow ──
-    const LEAD_ENDPOINT = '/api/lead'; // serverless function (see backend/)
+    const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzVt2d6198iANAzNqN3h9B8lQcE2rdnVHa2rqKS_-u2_1sNTTrXo67C7O5Ey67UI2us/exec';
     const AR_GUIDES = { 'ai-automation-starter-guide': 'guides/ai-automation-starter-guide-ar.html' };
     function guideUrl(g, fallback) { return (window.ai247Lang === 'ar' && AR_GUIDES[g]) ? AR_GUIDES[g] : fallback; }
     const overlay = document.getElementById('leadOverlay');
@@ -542,7 +542,8 @@
       try {
         await fetch(LEAD_ENDPOINT, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
           body: JSON.stringify(payload)
         });
       } catch (err) {
