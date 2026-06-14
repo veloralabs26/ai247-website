@@ -624,7 +624,7 @@
     }
 
     document.querySelectorAll('.download-btn').forEach(btn => {
-      btn.addEventListener('click', () => openModal(btn));
+      btn.addEventListener('click', () => triggerDownload(getPdfUrl(btn)));
     });
 
     document.getElementById('leadClose').addEventListener('click', closeModal);
