@@ -598,9 +598,23 @@
       document.body.removeChild(a);
     }
 
-    // Always open the modal first — no skipping
+    // First visit: show form. Returning visitor (same device): skip form and download instantly.
+    function getSavedLead() {
+      try { return JSON.parse(localStorage.getItem('ai247_lead')); } catch { return null; }
+    }
+
     document.querySelectorAll('.download-btn').forEach(btn => {
-      btn.addEventListener('click', () => openModal(btn));
+      btn.addEventListener('click', () => {
+        const saved = getSavedLead();
+        if (saved && saved.whatsapp) {
+          // Already captured — download immediately and log the guide
+          const pdf = getPdfUrl(btn);
+          triggerDownload(pdf);
+          sendLead({ ...saved, guide: btn.dataset.guide, guideTitle: getGuideTitle(btn), pdfUrl: pdf, page: location.href, returning: true });
+        } else {
+          openModal(btn);
+        }
+      });
     });
 
     document.getElementById('leadClose').addEventListener('click', closeModal);
@@ -624,6 +638,9 @@
         page: location.href,
         lang: isAr ? 'ar' : 'en'
       };
+
+      // Remember this visitor so future downloads are instant on this device
+      localStorage.setItem('ai247_lead', JSON.stringify({ name: payload.name, business: payload.business, whatsapp: payload.whatsapp }));
 
       // Trigger download immediately (within the click gesture)
       triggerDownload(current.pdf);
