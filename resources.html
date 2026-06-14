@@ -623,8 +623,19 @@
       document.body.removeChild(a);
     }
 
+    function hasLead() {
+      try { return !!localStorage.getItem('ai247_lead'); } catch (e) { return false; }
+    }
+
     document.querySelectorAll('.download-btn').forEach(btn => {
-      btn.addEventListener('click', () => triggerDownload(getPdfUrl(btn)));
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (hasLead()) {
+          triggerDownload(getPdfUrl(btn));   // already gave details -> download straight away
+        } else {
+          openModal(btn);                    // first time -> ask once, no download yet
+        }
+      });
     });
 
     document.getElementById('leadClose').addEventListener('click', closeModal);
@@ -649,10 +660,16 @@
         lang: isAr ? 'ar' : 'en'
       };
 
-      triggerDownload(current.pdf);
+      // Remember the visitor on this device so we never ask again
+      try {
+        localStorage.setItem('ai247_lead', JSON.stringify({
+          name: payload.name, business: payload.business, whatsapp: payload.whatsapp, ts: Date.now()
+        }));
+      } catch (e) {}
 
-      // Fire and forget — save to Google Sheets
+      // Save to Google Sheets (fire and forget), then download the file once
       sendLead(payload);
+      triggerDownload(current.pdf);
 
       form.classList.add('hide');
       head.classList.add('hide');
