@@ -498,14 +498,14 @@
     </div>
   </section>
 
-  <!-- LEAD CAPTURE MODAL -->
+  <!-- SUBSCRIBE MODAL (shown 30s after page load) -->
   <div class="lead-overlay" id="leadOverlay" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
     <div class="lead-modal">
       <button class="lead-close" id="leadClose" aria-label="Close">&times;</button>
       <div class="lead-head" id="leadHead">
-        <div class="lead-eyebrow">Free download</div>
-        <div class="lead-title" id="leadTitle">Get the guide</div>
-        <p class="lead-note">Tell us where to send it. The PDF downloads instantly and we'll WhatsApp you a copy too.</p>
+        <div class="lead-eyebrow">Stay in the loop</div>
+        <div class="lead-title" id="leadTitle">Get new AI resources every week</div>
+        <p class="lead-note">We drop practical guides, tools, and case studies. Leave your details and we'll send them straight to your WhatsApp.</p>
       </div>
       <form class="lead-form" id="leadForm">
         <div class="lead-field">
@@ -523,13 +523,13 @@
             <input type="tel" id="leadPhone" name="phone" required autocomplete="tel" placeholder="5X XXX XXXX" style="flex:1">
           </div>
         </div>
-        <button type="submit" class="lead-submit" id="leadSubmit">Send me the guide →</button>
+        <button type="submit" class="lead-submit" id="leadSubmit">Keep me updated →</button>
         <p class="lead-privacy">By submitting you agree to be contacted on WhatsApp. We never share your details.</p>
       </form>
       <div class="lead-success" id="leadSuccess">
         <div class="lead-success-icon">✓</div>
-        <div class="lead-title">Your guide is on its way!</div>
-        <p class="lead-note">The download just started. We've also sent it to your WhatsApp, check your chats in a moment.</p>
+        <div class="lead-title">You're on the list!</div>
+        <p class="lead-note">We'll send you the latest guides and tools on WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -556,40 +556,30 @@
   </script>
 
   <script>
-    // ── Lead capture + download flow ──
+    // ── Resources subscribe popup (30s timed) ──
     const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzVt2d6198iANAzNqN3h9B8lQcE2rdnVHa2rqKS_-u2_1sNTTrXo67C7O5Ey67UI2us/exec';
-
-    function getPdfUrl(btn) { return btn.dataset.pdf; }
-    function getGuideTitle(btn) { return btn.dataset.title; }
 
     const overlay = document.getElementById('leadOverlay');
     const form = document.getElementById('leadForm');
     const head = document.getElementById('leadHead');
     const success = document.getElementById('leadSuccess');
-    const titleEl = document.getElementById('leadTitle');
     const submitBtn = document.getElementById('leadSubmit');
-    let current = { guide: '', title: '', pdf: '' };
 
-    function openModal(btn) {
-      current = {
-        guide: btn.dataset.guide,
-        title: getGuideTitle(btn),
-        pdf: getPdfUrl(btn)
-      };
+    function openSubscribeModal() {
+      if (localStorage.getItem('ai247_subscribed')) return;
       const isAr = document.documentElement.lang === 'ar' || window.ai247Lang === 'ar';
-      titleEl.textContent = isAr ? ('احصل على: ' + current.title) : ('Get: ' + current.title);
-      submitBtn.textContent = isAr ? 'أرسل لي الدليل ←' : 'Send me the guide →';
-      document.querySelector('.lead-eyebrow').textContent = isAr ? 'تحميل مجاني' : 'Free download';
+      document.querySelector('.lead-eyebrow').textContent = isAr ? 'ابقَ على اطلاع' : 'Stay in the loop';
+      document.getElementById('leadTitle').textContent = isAr ? 'احصل على موارد الذكاء الاصطناعي أسبوعياً' : 'Get new AI resources every week';
       document.querySelector('.lead-note').textContent = isAr
-        ? 'أدخل بياناتك وسيصلك الدليل فوراً على واتساب.'
-        : 'Tell us where to send it. The PDF downloads instantly and we\'ll WhatsApp you a copy too.';
+        ? 'ننشر أدلة وأدوات ودراسات حالة عملية. اترك بياناتك وسنرسلها إلى واتساب.'
+        : 'We drop practical guides, tools, and case studies. Leave your details and we\'ll send them to your WhatsApp.';
+      submitBtn.textContent = isAr ? 'أبقني على اطلاع ←' : 'Keep me updated →';
       form.classList.remove('hide');
       head.classList.remove('hide');
       success.classList.remove('show');
       submitBtn.disabled = false;
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
-      setTimeout(() => document.getElementById('leadName').focus(), 250);
     }
 
     function closeModal() {
@@ -599,37 +589,35 @@
       document.getElementById('leadCC').value = '+966';
     }
 
-    async function sendLead(payload) {
-      try {
-        await fetch(LEAD_ENDPOINT, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain' },
-          body: JSON.stringify(payload)
-        });
-      } catch (err) {
-        console.warn('Lead endpoint unreachable.', err);
-      }
-    }
+    // Show 30s after page load, only if not already subscribed
+    setTimeout(openSubscribeModal, 30000);
 
-    function triggerDownload(pdf) {
-      const a = document.createElement('a');
-      a.href = pdf;
-      a.download = pdf.split('/').pop();
-      a.target = '_blank';
-      a.rel = 'noopener';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-    }
-
-    document.querySelectorAll('.download-btn').forEach(btn => {
-      btn.addEventListener('click', () => triggerDownload(getPdfUrl(btn)));
+    document.getElementById('leadClose').addEventListener('click', () => {
+      closeModal();
+      // Don't show again this session if dismissed
+      sessionStorage.setItem('ai247_sub_dismissed', '1');
     });
-
-    document.getElementById('leadClose').addEventListener('click', closeModal);
-    overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+    overlay.addEventListener('click', e => {
+      if (e.target === overlay) {
+        closeModal();
+        sessionStorage.setItem('ai247_sub_dismissed', '1');
+      }
+    });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    // Direct download — no popup
+    document.querySelectorAll('.download-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const a = document.createElement('a');
+        a.href = btn.dataset.pdf;
+        a.download = btn.dataset.pdf.split('/').pop();
+        a.target = '_blank';
+        a.rel = 'noopener';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -642,27 +630,28 @@
         name: document.getElementById('leadName').value.trim(),
         business: document.getElementById('leadBusiness').value.trim(),
         whatsapp,
-        guide: current.guide,
-        guideTitle: current.title,
-        pdfUrl: current.pdf,
+        source: 'resources-subscribe',
         page: location.href,
         lang: isAr ? 'ar' : 'en'
       };
 
-      triggerDownload(current.pdf);
+      try {
+        await fetch(LEAD_ENDPOINT, {
+          method: 'POST', mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) { console.warn('Lead endpoint unreachable.', err); }
 
-      // Fire and forget — save to Google Sheets
-      sendLead(payload);
-
+      localStorage.setItem('ai247_subscribed', '1');
       form.classList.add('hide');
       head.classList.add('hide');
       success.classList.add('show');
+      document.getElementById('leadTitle').textContent = isAr ? 'تم! أنت الآن على القائمة.' : 'You\'re on the list!';
       const successNote = document.querySelector('#leadSuccess .lead-note');
-      if (successNote) {
-        successNote.textContent = isAr
-          ? 'بدأ التحميل. سنرسل لك نسخة على واتساب خلال لحظات.'
-          : 'The download just started. We\'ve also sent it to your WhatsApp, check your chats in a moment.';
-      }
+      if (successNote) successNote.textContent = isAr
+        ? 'سنرسل لك أحدث الأدلة والأدوات على واتساب.'
+        : 'We\'ll send you the latest guides and tools on WhatsApp.';
     });
   </script>
   <script src="interactions.js"></script>
