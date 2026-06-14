@@ -101,13 +101,21 @@
     .dark-mode .guide-name { color: #f0f0f2; }
     .guide-desc { font-size: .92em; line-height: 155%; color: rgba(0,0,0,.55); flex: 1; }
     .dark-mode .guide-desc { color: hsla(0,0%,100%,.5); }
+    .guide-btns { display: flex; gap: .5em; margin-top: .25em; flex-wrap: wrap; }
     .guide-card .download-btn {
       align-items: center; background-color: var(--black); border-radius: 2em; color: var(--white);
       cursor: pointer; display: inline-flex; gap: .6em; font-size: .9em; font-weight: 500;
-      padding: .6em 1.1em; border: none; width: max-content; margin-top: .25em; transition: opacity .2s; font-family: inherit;
+      padding: .6em 1.1em; border: none; width: max-content; transition: opacity .2s; font-family: inherit;
     }
     .guide-card .download-btn:hover { opacity: .85; }
+    .guide-card .download-btn.btn-ar {
+      background-color: transparent; color: var(--black);
+      border: 1.5px solid rgba(0,0,0,.2);
+    }
+    .guide-card .download-btn.btn-ar:hover { background-color: rgba(0,0,0,.05); opacity: 1; }
     .dark-mode .guide-card .download-btn { background-color: #f0f0f2; color: #111113; }
+    .dark-mode .guide-card .download-btn.btn-ar { background-color: transparent; color: #f0f0f2; border-color: hsla(0,0%,100%,.25); }
+    .dark-mode .guide-card .download-btn.btn-ar:hover { background-color: hsla(0,0%,100%,.08); }
 
     /* Lead modal */
     .lead-overlay {
@@ -300,7 +308,10 @@
             <div class="guide-tag" data-i18n="freePdf">Free PDF</div>
             <div class="guide-name" data-i18n="guide-starter-title">The AI Automation Starter Guide</div>
             <div class="guide-desc" data-i18n="guide-starter-desc">How everyday businesses cut hours of manual busywork with simple, reliable AI automations.</div>
-            <button class="download-btn" data-guide="starter-guide" data-title="The AI Automation Starter Guide" data-title-ar="دليل الأتمتة بالذكاء الاصطناعي" data-pdf="guides/AI-247-Starter-Guide.pdf" data-pdf-ar="guides/AI-247-Starter-Guide-AR.pdf" data-i18n-text="downloadFree">Download Free →</button>
+            <div class="guide-btns">
+              <button class="download-btn" data-guide="starter-guide" data-title="The AI Automation Starter Guide" data-pdf="guides/AI-247-Starter-Guide.pdf">EN →</button>
+              <button class="download-btn btn-ar" data-guide="starter-guide" data-title="دليل الأتمتة بالذكاء الاصطناعي" data-pdf="guides/AI-247-Starter-Guide-AR.pdf">ع →</button>
+            </div>
           </div>
 
           <div class="guide-card">
@@ -310,7 +321,10 @@
             <div class="guide-tag" data-i18n="freePdf">Free PDF</div>
             <div class="guide-name" data-i18n="guide-workflows-title">10 Workflows You Can Automate This Month</div>
             <div class="guide-desc" data-i18n="guide-workflows-desc">A checklist of high-ROI automations you can put live right now, with the tools to do each one.</div>
-            <button class="download-btn" data-guide="10-workflows" data-title="10 Workflows You Can Automate This Month" data-title-ar="١٠ مهام يمكنك أتمتتها الشهر" data-pdf="guides/AI-247-10-Workflows.pdf" data-pdf-ar="guides/AI-247-10-Workflows-AR.pdf" data-i18n-text="downloadFree">Download Free →</button>
+            <div class="guide-btns">
+              <button class="download-btn" data-guide="10-workflows" data-title="10 Workflows You Can Automate This Month" data-pdf="guides/AI-247-10-Workflows.pdf">EN →</button>
+              <button class="download-btn btn-ar" data-guide="10-workflows" data-title="١٠ مهام يمكنك أتمتتها هذا الشهر" data-pdf="guides/AI-247-10-Workflows-AR.pdf">ع →</button>
+            </div>
           </div>
 
           <div class="guide-card">
@@ -320,7 +334,10 @@
             <div class="guide-tag" data-i18n="freePdf">Free PDF</div>
             <div class="guide-name" data-i18n="guide-leadgen-title">The AI Lead-Gen Playbook</div>
             <div class="guide-desc" data-i18n="guide-leadgen-desc">Fill your pipeline on autopilot with AI-powered outbound, qualification, and follow-up.</div>
-            <button class="download-btn" data-guide="lead-gen-playbook" data-title="The AI Lead-Gen Playbook" data-title-ar="دليل توليد العملاء بالذكاء الاصطناعي" data-pdf="guides/AI-247-Lead-Gen-Playbook.pdf" data-pdf-ar="guides/AI-247-Lead-Gen-Playbook-AR.pdf" data-i18n-text="downloadFree">Download Free →</button>
+            <div class="guide-btns">
+              <button class="download-btn" data-guide="lead-gen-playbook" data-title="The AI Lead-Gen Playbook" data-pdf="guides/AI-247-Lead-Gen-Playbook.pdf">EN →</button>
+              <button class="download-btn btn-ar" data-guide="lead-gen-playbook" data-title="دليل جذب العملاء بالذكاء الاصطناعي" data-pdf="guides/AI-247-Lead-Gen-Playbook-AR.pdf">ع →</button>
+            </div>
           </div>
 
           <div class="guide-card">
@@ -330,7 +347,10 @@
             <div class="guide-tag" data-i18n="freePdf">Free PDF</div>
             <div class="guide-name" data-i18n="guide-cs-title">AI for Customer Service</div>
             <div class="guide-desc" data-i18n="guide-cs-desc">Answer faster, never miss a lead, and free your team with AI-assisted support and WhatsApp flows.</div>
-            <button class="download-btn" data-guide="customer-service" data-title="AI for Customer Service" data-title-ar="الذكاء الاصطناعي في خدمة العملاء" data-pdf="guides/AI-247-Customer-Service.pdf" data-pdf-ar="guides/AI-247-Customer-Service-AR.pdf" data-i18n-text="downloadFree">Download Free →</button>
+            <div class="guide-btns">
+              <button class="download-btn" data-guide="customer-service" data-title="AI for Customer Service" data-pdf="guides/AI-247-Customer-Service.pdf">EN →</button>
+              <button class="download-btn btn-ar" data-guide="customer-service" data-title="الذكاء الاصطناعي لخدمة العملاء" data-pdf="guides/AI-247-Customer-Service-AR.pdf">ع →</button>
+            </div>
           </div>
 
           <div class="guide-card">
@@ -340,7 +360,10 @@
             <div class="guide-tag" data-i18n="freePdf">Free PDF</div>
             <div class="guide-name" data-i18n="guide-roi-title">Measuring AI ROI</div>
             <div class="guide-desc" data-i18n="guide-roi-desc">The simple framework we use to prove the return on every automation we ship for clients.</div>
-            <button class="download-btn" data-guide="measuring-roi" data-title="Measuring AI ROI" data-title-ar="قياس العائد من الذكاء الاصطناعي" data-pdf="guides/AI-247-Measuring-ROI.pdf" data-pdf-ar="guides/AI-247-Measuring-ROI-AR.pdf" data-i18n-text="downloadFree">Download Free →</button>
+            <div class="guide-btns">
+              <button class="download-btn" data-guide="measuring-roi" data-title="Measuring AI ROI" data-pdf="guides/AI-247-Measuring-ROI.pdf">EN →</button>
+              <button class="download-btn btn-ar" data-guide="measuring-roi" data-title="قياس عائد الذكاء الاصطناعي" data-pdf="guides/AI-247-Measuring-ROI-AR.pdf">ع →</button>
+            </div>
           </div>
 
           <div class="guide-card">
@@ -350,7 +373,10 @@
             <div class="guide-tag" data-i18n="freePdf">Free PDF</div>
             <div class="guide-name" data-i18n="guide-checklist-title">The AI Readiness Checklist</div>
             <div class="guide-desc" data-i18n="guide-checklist-desc">A printable checklist to find out if your business is ready to automate, and what to fix first.</div>
-            <button class="download-btn" data-guide="readiness-checklist" data-title="The AI Readiness Checklist" data-title-ar="قائمة الجاهزية للذكاء الاصطناعي" data-pdf="guides/AI-247-Readiness-Checklist.pdf" data-pdf-ar="guides/AI-247-Readiness-Checklist-AR.pdf" data-i18n-text="downloadFree">Download Free →</button>
+            <div class="guide-btns">
+              <button class="download-btn" data-guide="readiness-checklist" data-title="The AI Readiness Checklist" data-pdf="guides/AI-247-Readiness-Checklist.pdf">EN →</button>
+              <button class="download-btn btn-ar" data-guide="readiness-checklist" data-title="قائمة الجاهزية للذكاء الاصطناعي" data-pdf="guides/AI-247-Readiness-Checklist-AR.pdf">ع →</button>
+            </div>
           </div>
 
           <div class="guide-card">
@@ -360,7 +386,10 @@
             <div class="guide-tag" data-i18n="freePdf">Free PDF</div>
             <div class="guide-name" data-i18n="guide-wa-title">WhatsApp Automation Guide</div>
             <div class="guide-desc" data-i18n="guide-wa-desc">Turn WhatsApp into a 24/7 sales and support channel with AI-powered automation flows.</div>
-            <button class="download-btn" data-guide="whatsapp-automation" data-title="WhatsApp Automation Guide" data-title-ar="دليل أتمتة واتساب" data-pdf="guides/AI-247-WhatsApp-Automation.pdf" data-pdf-ar="guides/AI-247-WhatsApp-Automation-AR.pdf" data-i18n-text="downloadFree">Download Free →</button>
+            <div class="guide-btns">
+              <button class="download-btn" data-guide="whatsapp-automation" data-title="WhatsApp Automation Guide" data-pdf="guides/AI-247-WhatsApp-Automation.pdf">EN →</button>
+              <button class="download-btn btn-ar" data-guide="whatsapp-automation" data-title="دليل أتمتة واتساب" data-pdf="guides/AI-247-WhatsApp-Automation-AR.pdf">ع →</button>
+            </div>
           </div>
 
           <div class="guide-card">
@@ -370,7 +399,10 @@
             <div class="guide-tag" data-i18n="freePdf">Free PDF</div>
             <div class="guide-name" data-i18n="guide-reviews-title">Reviews &amp; Google Profile</div>
             <div class="guide-desc" data-i18n="guide-reviews-desc">Automate your review collection, respond faster, and turn your Google profile into a lead magnet.</div>
-            <button class="download-btn" data-guide="reviews-google-profile" data-title="Reviews &amp; Google Profile" data-title-ar="التقييمات وملف جوجل" data-pdf="guides/AI-247-Reviews-and-Google-Profile.pdf" data-pdf-ar="guides/AI-247-Reviews-and-Google-Profile-AR.pdf" data-i18n-text="downloadFree">Download Free →</button>
+            <div class="guide-btns">
+              <button class="download-btn" data-guide="reviews-google-profile" data-title="Reviews &amp; Google Profile" data-pdf="guides/AI-247-Reviews-and-Google-Profile.pdf">EN →</button>
+              <button class="download-btn btn-ar" data-guide="reviews-google-profile" data-title="التقييمات وملف جوجل" data-pdf="guides/AI-247-Reviews-and-Google-Profile-AR.pdf">ع →</button>
+            </div>
           </div>
 
         </div>
@@ -527,15 +559,8 @@
     // ── Lead capture + download flow ──
     const LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzVt2d6198iANAzNqN3h9B8lQcE2rdnVHa2rqKS_-u2_1sNTTrXo67C7O5Ey67UI2us/exec';
 
-    // Pick the right PDF based on current language
-    function getPdfUrl(btn) {
-      const isAr = document.documentElement.lang === 'ar' || window.ai247Lang === 'ar';
-      return (isAr && btn.dataset.pdfAr) ? btn.dataset.pdfAr : btn.dataset.pdf;
-    }
-    function getGuideTitle(btn) {
-      const isAr = document.documentElement.lang === 'ar' || window.ai247Lang === 'ar';
-      return (isAr && btn.dataset.titleAr) ? btn.dataset.titleAr : btn.dataset.title;
-    }
+    function getPdfUrl(btn) { return btn.dataset.pdf; }
+    function getGuideTitle(btn) { return btn.dataset.title; }
 
     const overlay = document.getElementById('leadOverlay');
     const form = document.getElementById('leadForm');
